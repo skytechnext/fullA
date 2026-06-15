@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Business Analyst — TechNext Academy</title>
+<meta name="description" content="A comprehensive course on the Business Analyst role in an Odoo ERP implementation: requirements engineering, elicitation, process modelling, fit-gap, the lifecycle, deliverables, data mapping, tools, skills, KPIs, and collaboration — in the context of TechNext." />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+<div class="progress-bar"></div>
+
+<nav class="topnav">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="logo">TN</span><span>TechNext Academy<small>Odoo Implementation Roles</small></span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="project-manager.html">Project Manager</a>
+      <a href="business-analyst.html" class="active">Business Analyst</a>
+      <a href="functional-consultant.html">Functional Consultant</a>
+    </div>
+  </div>
+</nav>
+
+<header class="course-head">
+  <div class="wrap">
+    <span class="eyebrow">Role Course · 02</span>
+    <h1>The Business Analyst</h1>
+    <p class="lead">The translator between the business and the software. The BA turns vague wants, tribal knowledge, and conflicting departmental habits into a clear, prioritized, testable definition of what the Odoo system must do — the specification everything downstream is built and tested against. Their product is not a document; it is <em>shared understanding</em>.</p>
+    <div class="course-meta">
+      <span class="chip">🔍 14 modules</span>
+      <span class="chip">⏱️ Full read ~35 min</span>
+      <span class="chip">🎯 Requirements &amp; process</span>
+      <span class="chip">⚙️ Odoo context throughout</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="course-layout">
+
+  <aside class="toc">
+    <h4>Course contents</h4>
+    <ol>
+      <li><a href="#what">What the role really is</a></li>
+      <li><a href="#mindset">The BA mindset</a></li>
+      <li><a href="#requirements">Requirements engineering</a></li>
+      <li><a href="#elicitation">Elicitation techniques</a></li>
+      <li><a href="#process">Process modelling: as-is &amp; to-be</a></li>
+      <li><a href="#fitgap">Fit-gap analysis</a></li>
+      <li><a href="#lifecycle">The BA across the 8 phases</a></li>
+      <li><a href="#deliverables">Deliverables &amp; artifacts</a></li>
+      <li><a href="#writing">Writing great requirements</a></li>
+      <li><a href="#data">Data analysis &amp; migration mapping</a></li>
+      <li><a href="#tools">Tools — running it on Odoo</a></li>
+      <li><a href="#skills">Skills that matter</a></li>
+      <li><a href="#day">A week in the life</a></li>
+      <li><a href="#boundaries">Boundaries &amp; the TechNext model</a></li>
+    </ol>
+  </aside>
+
+  <main class="content">
+
+    <section id="what">
+      <span class="module-label">Module 1</span>
+      <h2>What the role really is</h2>
+      <p>The Business Analyst sits in the gap between two languages. On one side is the business — a warehouse supervisor who says "we always reserve stock for the big accounts first," a finance lead who says "we can't close the month until the consignment stock is reconciled." On the other side is Odoo — a system of models, fields, workflows, and configuration switches that knows nothing about "big accounts" until someone defines what that means precisely. The BA is the person who makes those two sides mean the same thing.</p>
+      <p>Concretely, the BA <strong>produces the requirements that everything downstream is built against</strong>. The Functional Consultant configures Odoo to satisfy them. The developer codes against the functional specs derived from them. The UAT testers prove the system meets them. The PM tracks scope against them. If the requirements are wrong or fuzzy, every one of those activities inherits the error — and the cost of fixing a misunderstanding multiplies at each stage.</p>
+      <blockquote>The BA's deliverable is not the Business Requirements Document. It is the moment when the client, the consultant, and the developer all picture the same system. The document is just the evidence that the shared understanding exists.</blockquote>
+      <p>On an Odoo project the BA connects three things that naturally drift apart: what people <em>say</em> they want, what the business <em>actually needs</em> to operate, and what Odoo <em>can do</em> as standard. Holding all three in view at once is the essence of the role.</p>
+      <div class="callout">
+        <div class="c-title">Definition</div>
+        <p><strong>Business Analysis</strong> is the practice of enabling change in an organization by defining needs and recommending solutions that deliver value to stakeholders. In an ERP context it means understanding how the business runs today, defining how it should run on the new system, and specifying that target precisely enough that it can be configured and verified. The BA is the discipline of <strong>turning intent into requirements</strong>.</p>
+      </div>
+    </section>
+
+    <section id="mindset">
+      <span class="module-label">Module 2</span>
+      <h2>The BA mindset</h2>
+      <p>Tools and templates can be learned quickly. What separates a strong BA is a set of operating instincts about how to listen, question, and reason.</p>
+      <div class="grid-2">
+        <div class="card"><h4>Relentless curiosity</h4><p>The BA assumes they don't yet understand and keeps digging. "Walk me through what happens next." "Show me the actual spreadsheet." Understanding lives in the details the client forgot to mention because they're obvious to them.</p></div>
+        <div class="card"><h4>Ask "why", not just "what"</h4><p>A client asks for a custom approval screen. The BA asks <em>why</em> — and learns the real need is an audit trail, which Odoo's chatter and activity log already provide. The stated request is rarely the real requirement.</p></div>
+        <div class="card"><h4>Separate wants from needs</h4><p>Stakeholders describe solutions ("I want a button here") when they mean problems ("I keep forgetting to follow up"). The BA's job is to peel the request back to the underlying business need before solutioning.</p></div>
+        <div class="card"><h4>Neutrality between departments</h4><p>Sales and Finance will disagree about how a credit limit should work. The BA is not an advocate for either; they surface the conflict, frame the trade-off, and get the right person to decide. Taking sides corrupts the requirements.</p></div>
+        <div class="card"><h4>Precision in language</h4><p>"The order should be approved quickly" is not a requirement. "Orders over €10,000 require manager approval within 4 business hours" is. The BA hunts down every vague word — <em>quickly, easily, sometimes, etc.</em> — and pins it to something testable.</p></div>
+        <div class="card"><h4>Comfort with ambiguity, intolerance of leaving it</h4><p>Early discovery is messy and contradictory. The BA can sit in that fog without panicking — but never ships it. They drive every open question to a documented, agreed answer.</p></div>
+      </div>
+    </section>
+
+    <section id="requirements">
+      <span class="module-label">Module 3</span>
+      <h2>Requirements engineering — the discipline</h2>
+      <p>Requirements engineering is the structured practice at the heart of the BA role. It is not one activity but five, performed continuously rather than in a strict line.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Activity</th><th>What it produces</th><th>On a TechNext Odoo project</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. Elicitation</strong></td><td>Raw needs drawn out of stakeholders and documents.</td><td>Discovery workshops with the sales, warehouse, and finance teams; reading their existing process docs and sample invoices.</td></tr>
+            <tr><td><strong>2. Analysis</strong></td><td>Needs structured, conflicts resolved, gaps found.</td><td>Reconciling that Sales wants instant order confirmation while Finance wants a credit check first — and modelling how both fit in the Odoo Sales flow.</td></tr>
+            <tr><td><strong>3. Specification</strong></td><td>Requirements written down clearly and unambiguously.</td><td>The BRD and functional requirements, user stories, acceptance criteria — the artifacts the FC configures against.</td></tr>
+            <tr><td><strong>4. Validation</strong></td><td>Confirmation the requirements are correct and complete.</td><td>Walking the written requirements back to the client for sign-off; confirming nothing was misheard before build starts.</td></tr>
+            <tr><td><strong>5. Management</strong></td><td>Requirements tracked, versioned, and traced as they change.</td><td>The Requirements Traceability Matrix linking each requirement to its config and its UAT test; routing changes through the PM's change control.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Functional vs. non-functional requirements</h3>
+      <p>A <strong>functional requirement</strong> describes <em>what the system must do</em>: "The system shall generate a delivery order automatically when a sales order is confirmed." A <strong>non-functional requirement</strong> describes <em>how well</em> it must do it — performance, security, usability, availability, compliance: "Invoice PDFs must render within 3 seconds," or "Only the Finance group may post journal entries." On ERP projects non-functional requirements are routinely forgotten until they bite — the BA is the one who asks about volumes, concurrent users, audit, and access control up front.</p>
+      <h3>The three levels of requirement</h3>
+      <ul class="checks">
+        <li><strong>Business requirements</strong> — the high-level goals of the organization. <em>"Cut order-to-cash cycle time from 6 days to 2."</em> The why.</li>
+        <li><strong>Stakeholder requirements</strong> — what a particular group needs to meet those goals. <em>"The sales rep needs to see live stock availability when quoting."</em> The who and what they need.</li>
+        <li><strong>Solution requirements</strong> — the specific behaviour the system must deliver, split into functional and non-functional. <em>"The quotation line shall display Forecasted Quantity from the product's stock."</em> The concrete what.</li>
+      </ul>
+      <div class="callout info">
+        <div class="c-title">ℹ️ Why levels matter</div>
+        <p>Tracing a solution requirement back up to a business goal is the BA's defense against gold-plating. If a requested feature can't be linked to a real business need, it's a candidate for the "do we actually need this?" conversation — and on a fit-to-standard Odoo project, that conversation saves customizations.</p>
+      </div>
+    </section>
+
+    <section id="elicitation">
+      <span class="module-label">Module 4</span>
+      <h2>Elicitation techniques</h2>
+      <p>Elicitation is the craft of drawing out requirements that stakeholders can't simply hand over — because they've never written them down, disagree about them, or don't consciously know them. No single technique is enough; the BA combines several.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Technique</th><th>What it is</th><th>When to use it</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Interviews</strong></td><td>One-on-one structured or open conversation with a stakeholder.</td><td>To go deep with a key user or sponsor, surface sensitive issues, and understand individual pain points without group pressure.</td></tr>
+            <tr><td><strong>Workshops</strong></td><td>Facilitated group session with several stakeholders together.</td><td>To map a cross-department process end-to-end, surface disagreements live, and build shared agreement quickly. The workhorse of Odoo discovery.</td></tr>
+            <tr><td><strong>Observation / job-shadowing</strong></td><td>Watching people actually do the work at their desk.</td><td>When stated process and real process differ — to catch the workarounds and "we don't really do it that way" steps people forget to mention.</td></tr>
+            <tr><td><strong>Document analysis</strong></td><td>Studying existing forms, reports, spreadsheets, procedures, and the legacy system.</td><td>To extract current data structures, business rules buried in spreadsheets, and the real field set needed in Odoo (e.g. what's actually on their invoice template).</td></tr>
+            <tr><td><strong>Surveys / questionnaires</strong></td><td>Structured written questions sent to many respondents.</td><td>When many users span sites or shifts and you need breadth — e.g. capturing each branch's local quirks before workshops.</td></tr>
+            <tr><td><strong>Prototyping</strong></td><td>Showing a draft of the working system and gathering reactions.</td><td>When users can't describe what they want in the abstract but know it when they see it — configure standard Odoo and let them react.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <div class="c-title">💡 Pro tip</div>
+        <p>The most valuable technique on an Odoo project is often <strong>prototyping with standard Odoo</strong>. Rather than spend weeks documenting an abstract requirement, the BA and FC stand up the standard Sales or Inventory flow and put it in front of users. Their reactions ("yes but we also need…") elicit better requirements in an hour than a survey does in a week — and it naturally pulls the conversation toward fit-to-standard.</p>
+      </div>
+    </section>
+
+    <section id="process">
+      <span class="module-label">Module 5</span>
+      <h2>Process modelling: as-is and to-be</h2>
+      <p>Requirements don't live in isolation — they live inside business processes. The BA models those processes to understand how work actually flows, where it breaks, and how it should flow on Odoo.</p>
+      <h3>The vocabulary</h3>
+      <ul>
+        <li><strong>BPMN (Business Process Model and Notation)</strong> — a standard visual language for processes: rounded rectangles for activities, diamonds for decisions/gateways, circles for start/end events, arrows for flow.</li>
+        <li><strong>Swimlanes</strong> — horizontal or vertical bands showing <em>who</em> performs each step (Sales, Warehouse, Finance, the system). They make handoffs and hand-backs visible — and handoffs are where processes leak.</li>
+        <li><strong>As-is</strong> — the current-state map: how the business operates today, warts and all.</li>
+        <li><strong>To-be</strong> — the future-state map: how the process will run on Odoo after go-live.</li>
+        <li><strong>Value-stream thinking</strong> — looking at the end-to-end flow and asking which steps add value and which are waste (re-keying, waiting, checking work twice) to be designed out, not carried over.</li>
+      </ul>
+      <h3>Worked TechNext example: quote-to-cash</h3>
+      <p>A TechNext client, a mid-size industrial distributor, runs quote-to-cash on spreadsheets and a legacy accounting package. Here is the BA's analysis.</p>
+      <div class="callout warn">
+        <div class="c-title">⚠️ As-is — current state pain points</div>
+        <p>A rep builds a quote in Excel and emails it. To check stock they phone the warehouse. On acceptance, the order is re-typed into the accounting system and again into a warehouse spreadsheet. Finance manually checks each customer's balance against a separate aging report before release. Invoices are created by copy-pasting the order into a Word template. <strong>The same order data is re-keyed four times</strong>, stock figures are stale by the time the customer accepts, and credit checks are inconsistent because they depend on which clerk did them.</p>
+      </div>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ To-be in Odoo — the TechNext angle</div>
+        <p>In the to-be model, the rep builds the quotation in <strong>Odoo Sales</strong>, where the line items show live <em>Forecasted Quantity</em> from <strong>Inventory</strong> — no phone call. A configured credit-limit rule on the customer (<code>res.partner</code>) blocks confirmation when the balance is exceeded, applied consistently by the system, not a clerk. Confirming the order auto-generates the delivery order in <strong>Inventory</strong> and lets Finance create the invoice in <strong>Accounting</strong> directly from the order with one click. <strong>The data is entered once</strong> and flows through. The four re-keys collapse to zero; the BA's to-be map is essentially a description of standard Odoo, which is exactly the fit-to-standard outcome to aim for.</p>
+      </div>
+      <p>Notice the discipline: the BA does not draw the to-be as "the old process but on a computer." They redesign around what Odoo does natively, eliminating the waste the as-is map exposed. The to-be map then becomes the backbone of the requirements and the UAT scenarios.</p>
+    </section>
+
+    <section id="fitgap">
+      <span class="module-label">Module 6</span>
+      <h2>Fit-gap analysis</h2>
+      <p>Fit-gap is where requirements meet reality. Every requirement is held up against standard Odoo and classified. This is the single most commercially important analysis on the project, because it decides what gets configured (cheap, fast, upgrade-safe) versus what gets built (expensive, slow, a maintenance liability).</p>
+      <h3>The three classifications</h3>
+      <ul>
+        <li><strong>Fit</strong> — standard Odoo already does this with configuration only. No development. The goal is to maximize this column.</li>
+        <li><strong>Gap (config / Studio)</strong> — not available out of the box, but achievable with Odoo <strong>Studio</strong>, automated actions, server actions, or configuration without custom code.</li>
+        <li><strong>Custom</strong> — genuinely needs developer-built code: a custom module, a non-trivial integration, or complex logic Studio can't express.</li>
+      </ul>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Requirement</th><th>Classification</th><th>How it's met</th></tr></thead>
+          <tbody>
+            <tr><td>Confirming a sales order should reserve and ship stock.</td><td><strong>Fit</strong></td><td>Standard Sales → Inventory delivery flow. Configuration only.</td></tr>
+            <tr><td>Block order confirmation when a customer exceeds their credit limit.</td><td><strong>Fit</strong></td><td>Standard credit-limit setting on <code>res.partner</code> in Accounting.</td></tr>
+            <tr><td>Add a "Site Survey Date" field on the sales order and show it on the PDF.</td><td><strong>Gap</strong></td><td>Add the field and edit the quotation report in <strong>Odoo Studio</strong> — no code.</td></tr>
+            <tr><td>Auto-create a follow-up Project task when an order over €50k is confirmed.</td><td><strong>Gap</strong></td><td>An automated action / server action triggered on order confirmation — configuration.</td></tr>
+            <tr><td>Real-time two-way sync with the client's bespoke logistics platform.</td><td><strong>Custom</strong></td><td>A developer-built integration module against the external API.</td></tr>
+            <tr><td>A proprietary, multi-tier rebate calculation unique to this client.</td><td><strong>Custom</strong></td><td>Custom code; no standard or Studio equivalent.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>The fit-to-standard principle</h3>
+      <p>The governing philosophy is <strong>fit-to-standard</strong>: prefer changing the process to fit Odoo over changing Odoo to fit the process. Every gap and every custom item is a future cost — it must be re-tested at each Odoo version upgrade and it adds risk. So the BA's instinct on hearing a gap is to <em>challenge it before accepting it</em>: Is this requirement real, or just "the way we've always done it"? Would a standard Odoo feature, slightly differently used, satisfy the underlying need? Is the value of the customization worth its lifetime cost?</p>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>Because TechNext starts from pre-built vertical templates, a large share of requirements land in the <strong>Fit</strong> column before fit-gap even begins — "standard Odoo" is already 80% of the answer. The BA's job becomes triaging the remaining 20%: pushing hard to convert gaps into fits through process change, reserving genuine custom development for the handful of items that truly differentiate the client's business. Every gap defended into a fit protects the project's margin and the client's upgrade path.</p>
+      </div>
+    </section>
+
+    <section id="lifecycle">
+      <span class="module-label">Module 7</span>
+      <h2>The BA across the eight phases</h2>
+      <p>Here is exactly what the BA does in each phase of the <a href="methodology.html">Odoo lifecycle</a>. The BA is heaviest in phase 2 (discovery) and stays deeply involved through data mapping in phase 5 and test-case authoring in phase 6.</p>
+
+      <div class="phase"><div class="num">1</div><div>
+        <h4>Initiation &amp; kickoff</h4>
+        <p class="role-do">A consulting role here. The BA helps shape the high-level scope and success criteria in the charter, identifies which stakeholders and business areas must be involved in discovery, and starts the <strong>glossary</strong> so everyone uses the client's terms consistently from day one. They prepare the discovery plan — which workshops, who attends, what to read first.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">2</div><div>
+        <h4>Discovery &amp; analysis</h4>
+        <p class="role-do"><strong>The BA's heaviest phase — they lead it.</strong> Run the elicitation: workshops, interviews, observation, document analysis. Map the as-is processes, define the to-be on Odoo, and document business and functional requirements. Run the <strong>fit-gap analysis</strong>, classifying every requirement as fit/gap/custom. Prioritize with MoSCoW. Produce and validate the BRD. This is where the project's success is largely decided.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">3</div><div>
+        <h4>Solution design</h4>
+        <p class="role-do">Consulting role; the FC leads. The BA stays close to ensure the design genuinely satisfies the requirements and to answer the FC's "what did the client mean here?" questions. They clarify edge cases, confirm business rules, and update requirements when design reveals a gap. They keep the requirements and the emerging design traceable to each other.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">4</div><div>
+        <h4>Build &amp; configuration</h4>
+        <p class="role-do">Mostly informed, but actively available. As the FC configures and developers build, the BA fields clarification questions, validates that what's being built matches the intent, and keeps the requirements traceability matrix current as approved changes land. They prepare the test cases that phase 6 will run.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">5</div><div>
+        <h4>Data migration</h4>
+        <p class="role-do"><strong>A second heavy phase for the BA — they own the data mapping.</strong> Define the source-to-target field mapping from the legacy system to Odoo models (<code>res.partner</code>, <code>product.template</code>, <code>account.move</code>…), specify transformation and deduplication rules, run the data quality assessment, and validate migrated data against source. The FC executes the load; the BA designs and verifies the map.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">6</div><div>
+        <h4>Testing &amp; UAT</h4>
+        <p class="role-do"><strong>The BA writes the UAT test cases</strong> — derived directly from the requirements and the to-be process maps, so testing proves the system does what was agreed. They support client testers, help triage whether a reported defect is a real requirement miss or a misunderstanding, and confirm each requirement is covered by at least one passing test via the traceability matrix.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">7</div><div>
+        <h4>Training &amp; go-live</h4>
+        <p class="role-do">Consulting role. Because the BA understands the to-be processes better than anyone, they often help build training material and user guides that follow the real workflows. They support final data validation at cutover and remain on hand to answer "is this behaving as specified?" questions during the switch.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">8</div><div>
+        <h4>Hypercare &amp; support</h4>
+        <p class="role-do">Largely informed. The BA helps interpret early-life issues: is this a defect, a training gap, or a missed requirement? They capture continuous-improvement requests for the next iteration and feed lessons back into the glossary and requirement templates.</p>
+      </div></div>
+    </section>
+
+    <section id="deliverables">
+      <span class="module-label">Module 8</span>
+      <h2>Deliverables &amp; artifacts</h2>
+      <p>These are the tangible documents the BA produces and maintains. Each captures and protects a piece of the shared understanding.</p>
+      <div class="grid-2">
+        <div class="deliverable"><h4>Business Requirements Document (BRD)</h4><p>The high-level statement of business goals, scope, and what success looks like in business terms. The reference everyone returns to for "why are we doing this?"</p></div>
+        <div class="deliverable"><h4>Functional Requirements Specification</h4><p>The detailed list of what the system must do, requirement by requirement, with priorities — the FC's primary input for configuration.</p></div>
+        <div class="deliverable"><h4>As-is / to-be process maps</h4><p>BPMN swimlane diagrams of the current and future state for each in-scope process — the backbone of design and UAT.</p></div>
+        <div class="deliverable"><h4>Gap-fit analysis</h4><p>Every requirement classified fit / gap / custom, with the chosen approach and rationale — the basis for scope and effort.</p></div>
+        <div class="deliverable"><h4>User stories &amp; use cases</h4><p>Requirements expressed from the user's point of view with acceptance criteria, plus step-by-step use cases for complex flows.</p></div>
+        <div class="deliverable"><h4>Requirements Traceability Matrix (RTM)</h4><p>The grid linking each requirement to its design, its configuration, and its UAT test — proof that nothing was dropped and everything is tested.</p></div>
+        <div class="deliverable"><h4>Data mapping specification</h4><p>Source-to-target mapping of legacy fields to Odoo fields with transformation and dedup rules — the blueprint for migration.</p></div>
+        <div class="deliverable"><h4>UAT test cases</h4><p>Scenario-based scripts, traceable to requirements, that the client runs to formally accept the system.</p></div>
+        <div class="deliverable"><h4>Glossary / data dictionary</h4><p>Agreed definitions of business terms and the meaning, type, and source of each data field — kills "we each meant something different by 'customer'."</p></div>
+      </div>
+    </section>
+
+    <section id="writing">
+      <span class="module-label">Module 9</span>
+      <h2>Writing great requirements</h2>
+      <p>A requirement is only useful if it can be built and tested without re-interpretation. The craft of writing them is what separates a BA from a scribe.</p>
+      <h3>User stories &amp; acceptance criteria</h3>
+      <p>The user-story format keeps requirements grounded in real value: <em>"As a <strong>sales rep</strong>, I want to <strong>see live stock availability on the quotation line</strong>, so that <strong>I don't promise stock we don't have</strong>."</em> The story states who, what, and why. It is paired with <strong>acceptance criteria</strong> — the concrete, testable conditions that prove it's done: <em>"Given a product with 5 units forecasted, when I add it to a quotation, then the line shows Forecasted Quantity = 5; and when forecasted quantity is zero, the line shows a stock warning."</em></p>
+      <h3>Quality checklists — INVEST and SMART</h3>
+      <p>Two mnemonics keep requirements honest. A good user story is <strong>INVEST</strong>: <em>Independent, Negotiable, Valuable, Estimable, Small, Testable</em>. A good requirement statement is <strong>SMART</strong>: <em>Specific, Measurable, Achievable, Relevant, Time-bound</em>. Both converge on the same demand — a requirement you can't test is not finished.</p>
+      <ul class="checks">
+        <li><strong>Independent</strong> — can be understood and built without depending on another story's wording.</li>
+        <li><strong>Negotiable</strong> — captures the need, not a locked-in implementation; leaves room for the fit-to-standard conversation.</li>
+        <li><strong>Valuable</strong> — traces up to a real business goal.</li>
+        <li><strong>Estimable</strong> — clear enough that the FC can size the effort.</li>
+        <li><strong>Small</strong> — fits in a delivery cycle; large items are split.</li>
+        <li><strong>Testable</strong> — has acceptance criteria a tester can pass or fail unambiguously.</li>
+      </ul>
+      <div class="callout warn">
+        <div class="c-title">⚠️ Ambiguity is the most expensive defect</div>
+        <p>A misread requirement isn't caught until UAT — after it's been designed, configured, possibly coded, and data-mapped around. By then the fix touches every one of those layers. The word "etc." in a requirement, an undefined "approval", a "fast" with no number — each is a landmine. <strong>The cheapest moment to fix a requirement is before anyone builds against it.</strong> The BA hunts ambiguity like a defect, because that is exactly what it is.</p>
+      </div>
+      <h3>Prioritization with MoSCoW</h3>
+      <p>Not every requirement is equal, and fixed-scope packages force choices. <strong>MoSCoW</strong> sorts them: <strong>Must have</strong> (the system fails without it), <strong>Should have</strong> (important but a workaround exists), <strong>Could have</strong> (nice, dropped first under pressure), <strong>Won't have this time</strong> (explicitly out of scope, parked for a later phase). Agreeing MoSCoW with the sponsor early gives the PM a principled way to protect the timeline when something has to give — you cut from the bottom, by agreement, not by accident.</p>
+    </section>
+
+    <section id="data">
+      <span class="module-label">Module 10</span>
+      <h2>Data analysis &amp; migration mapping</h2>
+      <p>Data migration is where Odoo projects most often slip, and the BA is central to it. The system can be perfectly configured, but if the customers, products, and open balances loaded into it are wrong, the business won't trust it — and trust lost at go-live is hard to win back.</p>
+      <h3>Source-to-target mapping</h3>
+      <p>The core artifact is the <strong>source-to-target mapping specification</strong>: for every field in the legacy data, where it lands in Odoo, and how it's transformed on the way. A simplified extract:</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Legacy field</th><th>Odoo model.field</th><th>Transformation rule</th></tr></thead>
+          <tbody>
+            <tr><td>CUST_NAME</td><td><code>res.partner.name</code></td><td>Trim whitespace; title-case; flag blanks for review.</td></tr>
+            <tr><td>CUST_TYPE (C/V/B)</td><td><code>res.partner.customer_rank</code> / <code>supplier_rank</code></td><td>Map C→customer, V→vendor, B→both; default 0 otherwise.</td></tr>
+            <tr><td>ITEM_CODE</td><td><code>product.template.default_code</code></td><td>Uppercase; must be unique — duplicates flagged.</td></tr>
+            <tr><td>OPEN_INV_BAL</td><td><code>account.move</code> (open entries)</td><td>Load as open customer invoices at migration date; reconcile total to legacy aging report.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Data quality assessment &amp; deduplication</h3>
+      <p>Before mapping, the BA profiles the legacy data: how many records are missing required fields, how many customers are near-duplicates ("ACME Ltd", "Acme Limited", "ACME LTD."), how stale the records are. They define <strong>deduplication rules</strong> (match on tax ID first, then normalized name + postcode), set <strong>cleansing rules</strong>, and decide what history actually needs to migrate versus what can be archived — migrating ten years of dead records is pure cost and risk. Crucially, the BA makes <em>data quality the client's owned responsibility</em>, surfaced early, because only the client can decide which "ACME" is the real one.</p>
+      <div class="callout tip">
+        <div class="c-title">💡 Pro tip</div>
+        <p>Always run at least one <strong>trial migration into a staging environment well before go-live</strong>, then reconcile loaded totals back to a legacy report (e.g. total open receivables must match the aging report to the cent). A trial that surfaces a mapping error in week three is a fix; the same error discovered at cutover is a postponed go-live.</p>
+      </div>
+    </section>
+
+    <section id="tools">
+      <span class="module-label">Module 11</span>
+      <h2>Tools — running it on and around Odoo</h2>
+      <p>Like the PM, the TechNext BA leans on Odoo itself wherever possible, supplemented by a few specialist tools for modelling and mapping.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Need</th><th>Tool</th><th>How the BA uses it</th></tr></thead>
+          <tbody>
+            <tr><td>Structured discovery</td><td>Odoo Surveys</td><td>Send standardized discovery questionnaires to many users and branches; capture local quirks at scale before workshops.</td></tr>
+            <tr><td>Documentation &amp; sign-off</td><td>Odoo Knowledge</td><td>Author and version the BRD, process notes, and glossary in a shared, searchable space the client can access.</td></tr>
+            <tr><td>Mapping &amp; the RTM</td><td>Spreadsheets</td><td>Maintain the source-to-target data map and the requirements traceability matrix where rows, filters, and formulas shine.</td></tr>
+            <tr><td>Process diagrams</td><td>BPMN / diagramming tools</td><td>Draw as-is and to-be swimlane maps for shared review.</td></tr>
+            <tr><td>Prototyping requirements</td><td>Odoo Studio</td><td>Mock up fields, views, and reports live so users can react to something real and refine the requirement on the spot.</td></tr>
+            <tr><td>Data loading &amp; validation</td><td>Odoo import templates</td><td>Use the standard per-model import templates to define and test the target structure for migration.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>TechNext records discovery sessions and uses AI to draft first-pass requirements from the transcripts — turning a two-hour workshop into a structured set of candidate user stories in minutes. But the draft is exactly that: a draft. <strong>A human BA validates every AI-drafted requirement</strong> against the client before it enters the BRD, because the costliest error on the project is a confidently-worded requirement that the client never actually meant. Automate the typing; never automate the understanding.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <span class="module-label">Module 12</span>
+      <h2>Skills that matter</h2>
+      <p>The BA role is a blend of analytical technique and human listening. The hard skills get you in the room; the soft skills get you the truth.</p>
+      <h4>Hard skills</h4>
+      <div class="tags">
+        <span class="tag hard">Requirements elicitation</span>
+        <span class="tag hard">Process modelling / BPMN</span>
+        <span class="tag hard">Data analysis</span>
+        <span class="tag hard">Odoo functional knowledge</span>
+        <span class="tag hard">Documentation</span>
+        <span class="tag hard">SQL / spreadsheet literacy</span>
+        <span class="tag hard">Fit-gap analysis</span>
+      </div>
+      <h4>Soft skills (the decisive ones)</h4>
+      <div class="tags">
+        <span class="tag soft">Active listening</span>
+        <span class="tag soft">Questioning</span>
+        <span class="tag soft">Communication</span>
+        <span class="tag soft">Facilitation</span>
+        <span class="tag soft">Stakeholder empathy</span>
+        <span class="tag soft">Attention to detail</span>
+        <span class="tag soft">Neutrality</span>
+      </div>
+      <p>A BA does not need to configure Odoo to expert level — but they must know it well enough to recognize when a requirement is a fit, to challenge an unnecessary gap, and to speak the FC's language. <em>Enough Odoo functional literacy to steer requirements toward standard</em> is the bar, paired with the listening skill to be sure they've understood what the business truly needs.</p>
+    </section>
+
+    <section id="day">
+      <span class="module-label">Module 13</span>
+      <h2>A week in the life</h2>
+      <p>An illustrative week for a TechNext BA in the discovery &amp; analysis phase of an Odoo implementation for a distribution client.</p>
+      <div class="timeline">
+        <div class="slot"><div class="t">MON</div> Run the quote-to-cash discovery workshop with Sales and Warehouse; sketch the as-is swimlane live; capture pain points and open questions. Send the AI-drafted requirements from the recording for the team to refine.</div>
+        <div class="slot"><div class="t">TUE</div> Job-shadow two sales reps to see how quoting and stock-checking really happen versus what was described. Update the as-is map with the workarounds nobody mentioned in the workshop.</div>
+        <div class="slot"><div class="t">WED</div> Write up functional requirements as user stories with acceptance criteria; prioritize with MoSCoW. Draft the to-be process on standard Odoo Sales/Inventory and prototype two screens in Studio for tomorrow.</div>
+        <div class="slot"><div class="t">THU</div> Fit-gap session with the FC: classify each requirement fit/gap/custom, challenge the three gaps toward fit. Start the source-to-target data map; profile the legacy customer file and flag the duplicate clusters.</div>
+        <div class="slot"><div class="t">FRI</div> Validation walkthrough with the client sponsor: confirm the BRD reads true, resolve open questions, get sign-off on the prioritized scope. Update the RTM and hand the agreed requirements to the FC for design.</div>
+      </div>
+    </section>
+
+    <section id="boundaries">
+      <span class="module-label">Module 14</span>
+      <h2>Boundaries &amp; the TechNext lean model</h2>
+      <p>Knowing where the BA stops is as important as knowing what they do. The BA owns the <em>what</em>; the PM owns the <em>when and cost</em>; the FC owns the <em>how</em>.</p>
+      <ul class="checks">
+        <li><strong>BA vs. PM:</strong> the BA defines <em>what the business needs</em> and how to phrase it testably; the PM owns <em>when it's delivered and at what cost</em>. The BA doesn't manage the budget or the schedule; the PM doesn't write requirements — but the PM routes every requirement change through change control.</li>
+        <li><strong>BA vs. FC:</strong> the BA defines the need in <em>business terms</em> ("orders over a limit must be approved"); the FC decides <em>how Odoo solves it</em> ("a configured approval rule on the sales order"). The handoff between them — clear, prioritized, testable requirements — is one of the project's most critical (see the <a href="methodology.html#handoffs">handoffs</a>). The two roles overlap heavily, and in many shops they merge.</li>
+      </ul>
+      <h3>Metrics &amp; KPIs the BA tracks</h3>
+      <p>The BA's quality is measurable. These indicators reveal whether the requirements work is actually protecting the project.</p>
+      <div class="grid-3">
+        <div class="card kpi"><div class="big">Churn</div><div class="lbl">Requirements stability — how much do requirements change after sign-off?</div></div>
+        <div class="card kpi"><div class="big">% Traced</div><div class="lbl">Requirements traced to a UAT test in the RTM</div></div>
+        <div class="card kpi"><div class="big">Fit %</div><div class="lbl">Fit-to-standard ratio — requirements met by standard Odoo</div></div>
+        <div class="card kpi"><div class="big">Gap defects</div><div class="lbl">Defects traced back to a requirement gap or ambiguity</div></div>
+        <div class="card kpi"><div class="big">UAT pass</div><div class="lbl">First-run UAT pass rate against the test cases</div></div>
+        <div class="card kpi"><div class="big">Sign-off</div><div class="lbl">Cycle time to validate and sign off requirements</div></div>
+      </div>
+      <p>The most telling leading indicator is <strong>requirements churn after sign-off</strong>: heavy late changes signal discovery didn't truly land, and every one of them ripples through design, build, data, and tests. Low churn with high traceability is the signature of BA work that's doing its job.</p>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ How the role is absorbed in TechNext's A-Team</div>
+        <p>In TechNext's lean, automation-first model there is rarely a standalone BA seat. The BA and FC roles merge into a single <strong>Solutions Engineer</strong> who both defines the need and decides how Odoo meets it — the overlap between the two roles is large enough that splitting them adds handoffs, not value. Automation carries the toil: discovery transcripts become draft requirements, vertical templates pre-classify most requirements as fits, and test cases generate from the to-be maps. What stays irreducibly human is the judgment in this course — drawing out the real need, the neutral read across departments, the fit-to-standard challenge, and the validation that a written requirement truly means what the client meant. <strong>Automate the scope drafting; never automate the understanding.</strong></p>
+      </div>
+    </section>
+
+    <div class="nextprev">
+      <a href="project-manager.html"><small>← Previous</small> The Project Manager</a>
+      <a href="functional-consultant.html"><small>Next course →</small> The Functional Consultant</a>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="inner">
+    <span>© TechNext — Odoo ERP Implementation. Internal training curriculum.</span>
+    <span><a href="index.html">Home</a> · <a href="methodology.html">Methodology</a> · <a href="project-manager.html">PM</a> · <a href="functional-consultant.html">FC</a></span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
