@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Functional Consultant — TechNext Academy</title>
+<meta name="description" content="A comprehensive course on the Functional Consultant role in an Odoo ERP implementation: Odoo product mastery, the integrated data model, configuration vs. customization, solution design, Studio, functional specs, demos, testing, training, tools, skills, KPIs, and collaboration — in the context of TechNext." />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+<div class="progress-bar"></div>
+
+<nav class="topnav">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="logo">TN</span><span>TechNext Academy<small>Odoo Implementation Roles</small></span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="project-manager.html">Project Manager</a>
+      <a href="business-analyst.html">Business Analyst</a>
+      <a href="functional-consultant.html" class="active">Functional Consultant</a>
+    </div>
+  </div>
+</nav>
+
+<header class="course-head">
+  <div class="wrap">
+    <span class="eyebrow">Role Course · 03</span>
+    <h1>The Functional Consultant</h1>
+    <p class="lead">The Odoo product expert who turns requirements into a configured, working system. The Functional Consultant (FC) stands between the business (what the Business Analyst defined) and the technical team (the developers who close true gaps) — and their deliverable is not a document but <em>a solution that runs</em>. If the PM owns certainty and the BA owns clarity, the FC owns <em>fit</em>: making real Odoo do the real job.</p>
+    <div class="course-meta">
+      <span class="chip">⚙️ 15 modules</span>
+      <span class="chip">⏱️ Full read ~40 min</span>
+      <span class="chip">🛠️ Solution &amp; configuration</span>
+      <span class="chip">⚙️ Odoo context throughout</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="course-layout">
+
+  <aside class="toc">
+    <h4>Course contents</h4>
+    <ol>
+      <li><a href="#what">What the role really is</a></li>
+      <li><a href="#mindset">The FC mindset</a></li>
+      <li><a href="#breadth">Odoo product mastery — the breadth</a></li>
+      <li><a href="#model">How Odoo actually works</a></li>
+      <li><a href="#config-vs-custom">Configuration vs. customization</a></li>
+      <li><a href="#design">Solution design</a></li>
+      <li><a href="#lifecycle">The FC across the 8 phases</a></li>
+      <li><a href="#config-deep">Configuration deep dive</a></li>
+      <li><a href="#studio">Odoo Studio &amp; low-code</a></li>
+      <li><a href="#specs">Writing functional specs</a></li>
+      <li><a href="#demos">Demos &amp; the configure-demo-refine loop</a></li>
+      <li><a href="#testing">Testing &amp; training</a></li>
+      <li><a href="#tools">Tools — the FC's toolkit</a></li>
+      <li><a href="#skills">Skills &amp; KPIs that matter</a></li>
+      <li><a href="#boundaries">Boundaries &amp; the TechNext model</a></li>
+    </ol>
+  </aside>
+
+  <main class="content">
+
+    <section id="what">
+      <span class="module-label">Module 1</span>
+      <h2>What the role really is</h2>
+      <p>A Functional Consultant is the person who makes Odoo actually do what the client needs. The BA has captured <em>what the business needs</em>; the developers can build <em>whatever is truly missing</em>. In between sits the FC, who answers the single question that defines the role: <em>"How does Odoo deliver this — and how much of it does standard Odoo already do?"</em></p>
+      <p>The FC's product is <strong>a working solution</strong>. Not a requirements document, not a Gantt chart, not lines of code — a configured Odoo database where a salesperson can quote, a warehouse can ship, and finance can close the month. Everything the FC does ladders up to that running system.</p>
+      <p>On an Odoo implementation the FC is the connective tissue between three worlds:</p>
+      <ul>
+        <li><strong>The business need</strong> — the prioritized, testable requirements handed over by the Business Analyst.</li>
+        <li><strong>The Odoo platform</strong> — its apps, its data model, its standard behaviour, and its limits. The FC knows what Odoo does out of the box better than anyone on the project.</li>
+        <li><strong>The development team</strong> — to whom the FC hands a precise functional spec for the genuine gaps that configuration cannot close.</li>
+      </ul>
+      <blockquote>The FC is the only role that must be deeply fluent in the product itself. A PM can run an Odoo project knowing Odoo broadly; the FC cannot configure a chart of accounts, a warehouse, or a sales workflow without knowing exactly how Odoo models them.</blockquote>
+      <div class="callout">
+        <div class="c-title">Definition</div>
+        <p>A <strong>Functional Consultant</strong> translates business requirements into a configured ERP solution, using the product's standard capabilities first and specifying custom development only for genuine gaps. In Odoo terms the FC is the <em>application expert</em> across the integrated suite — the bridge between the requirement and the running database.</p>
+      </div>
+    </section>
+
+    <section id="mindset">
+      <span class="module-label">Module 2</span>
+      <h2>The FC mindset</h2>
+      <p>Before the mechanics, the operating instincts. Strong Odoo FCs think in a recognisable way:</p>
+      <div class="grid-2">
+        <div class="card"><h4>Fit-to-standard first</h4><p>The default answer is "standard Odoo can do this." The FC reaches for a setting or a standard feature before a custom field, and a custom field before custom code. Every deviation from standard is a cost the FC must justify, not a freedom to enjoy.</p></div>
+        <div class="card"><h4>Configure before customize</h4><p>There is a spectrum from a checkbox in Settings to a bespoke Python module. The FC always moves up that spectrum reluctantly, because everything to the left survives upgrades cleanly and everything to the right carries lifetime maintenance.</p></div>
+        <div class="card"><h4>Think in the data model</h4><p>Good FCs see Odoo as objects and flows: partners, products, orders, moves, journal entries. They ask "what record does this create, and what does it trigger downstream?" rather than "which button does the user press?"</p></div>
+        <div class="card"><h4>Demo-driven</h4><p>The FC believes nothing is agreed until the client has seen it work. They configure in small increments and show them early, because a five-minute demo surfaces misunderstandings that a fifty-page document hides.</p></div>
+        <div class="card"><h4>Pragmatic, not purist</h4><p>The best Odoo solution is rarely the most elegant one; it's the one the users will actually adopt within the budget. The FC trades theoretical perfection for fit, adoption, and upgradeability.</p></div>
+        <div class="card"><h4>Process-aware</h4><p>The FC doesn't configure a field in isolation; they configure a flow. Changing how a sales order is confirmed touches delivery, invoicing, and accounting. They hold the whole document chain in mind.</p></div>
+      </div>
+    </section>
+
+    <section id="breadth">
+      <span class="module-label">Module 3</span>
+      <h2>Odoo product mastery — the breadth required</h2>
+      <p>Odoo is not one application; it is an integrated suite of dozens of apps sharing one database. The FC needn't have mastered every app, but they must know the <strong>integrated whole</strong> — what each app does, the data it owns, and how it hands off to the next. Below are the major apps an Odoo FC is expected to understand.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>App</th><th>What it does</th><th>Key objects / hand-offs</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CRM</strong></td><td>Lead and opportunity pipeline management; qualifying and converting prospects into customers.</td><td>Leads → Opportunities → quotation in Sales; feeds the partner record.</td></tr>
+            <tr><td><strong>Sales</strong></td><td>Quotations and sales orders, pricelists, customer-facing pricing and terms.</td><td>Sales Order → Delivery (Inventory) and Invoice (Accounting).</td></tr>
+            <tr><td><strong>Purchase</strong></td><td>Requests for quotation, purchase orders, vendor management and reordering.</td><td>Purchase Order → Receipt (Inventory) and Vendor Bill (Accounting).</td></tr>
+            <tr><td><strong>Inventory</strong></td><td>Warehouses, stock moves, operations (receipts, deliveries, internal transfers), routes, lots/serials.</td><td>Stock moves driven by Sales/Purchase/MRP; valuation posts to Accounting.</td></tr>
+            <tr><td><strong>Manufacturing (MRP)</strong></td><td>Bills of materials, work orders, work centers, manufacturing orders, and replenishment planning.</td><td>Consumes component stock, produces finished goods; routes &amp; BoMs.</td></tr>
+            <tr><td><strong>Accounting / Invoicing</strong></td><td>Chart of accounts, journals, customer/vendor invoices, payments, taxes, bank reconciliation, reporting.</td><td>Journal entries generated from Sales, Purchase, Inventory valuation, Payroll.</td></tr>
+            <tr><td><strong>Project</strong></td><td>Tasks, stages, timesheets, planning; service delivery and internal project tracking.</td><td>Timesheets can feed invoicing; tasks link to Sales orders for services.</td></tr>
+            <tr><td><strong>HR / Payroll</strong></td><td>Employees, contracts, time off, attendances, recruitment, appraisals, and salary computation.</td><td>Payroll posts salary journal entries to Accounting.</td></tr>
+            <tr><td><strong>Point of Sale</strong></td><td>In-store and counter sales, sessions, cash control, with offline-capable front end.</td><td>POS orders create stock moves and accounting entries on session close.</td></tr>
+            <tr><td><strong>eCommerce / Website</strong></td><td>Online storefront and CMS, product catalogue, online orders and payments.</td><td>Online orders become Sales Orders; shares the same product &amp; pricelist data.</td></tr>
+            <tr><td><strong>Subscriptions</strong></td><td>Recurring revenue: subscription plans, automatic recurring invoicing, MRR tracking.</td><td>Generates recurring Sales/Invoices; integrates with payment tokens.</td></tr>
+            <tr><td><strong>Helpdesk</strong></td><td>Ticket management, SLAs, support teams, customer self-service portal.</td><td>Tickets can link to Sales orders, projects, and field interventions.</td></tr>
+            <tr><td><strong>Field Service</strong></td><td>On-site interventions, scheduling, worksheets, and time/material billing for technicians.</td><td>Interventions feed timesheets and Sales/Invoicing.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>No FC starts knowing all of this. At TechNext, FCs specialise by <strong>vertical</strong> — a retail FC lives in POS, Inventory, eCommerce and Accounting; a manufacturing FC lives in MRP, Inventory, Purchase and Quality. The pre-built vertical templates encode the common configuration for each industry, so the FC's mastery deepens fastest where the template library is richest.</p>
+      </div>
+    </section>
+
+    <section id="model">
+      <span class="module-label">Module 4</span>
+      <h2>How Odoo actually works — the FC's mental model</h2>
+      <p>This is the conceptual backbone of the role. An FC who understands Odoo's architecture configures fast and correctly; one who doesn't fights the system at every turn.</p>
+      <h3>One integrated database</h3>
+      <p>The defining principle of Odoo is that <strong>all apps share a single database</strong>. The customer a salesperson creates in CRM is the same partner record finance invoices and the warehouse ships to. There is no syncing between modules because there is nothing to sync — it is one model. This is why "fit-to-standard" matters: the integration is free and automatic when you stay inside the standard objects.</p>
+      <h3>Master data</h3>
+      <p>A handful of records underpin everything. Getting these right is the foundation of a clean implementation:</p>
+      <ul>
+        <li><strong>Partners</strong> (<code>res.partner</code>) — customers, vendors, contacts, even companies and employees' related contacts. One partner can be a customer and a vendor at once.</li>
+        <li><strong>Products</strong> (<code>product.template</code> / <code>product.product</code>) — with a type (storable, consumable, service), a category that drives accounting and inventory valuation, units of measure, and the routes that decide how they're procured.</li>
+        <li><strong>Chart of accounts</strong> — the accounts, taxes, journals, and fiscal positions that determine how every transaction is booked.</li>
+      </ul>
+      <h3>Document flows</h3>
+      <p>Odoo operates through chains of documents that trigger one another. The two canonical flows every FC must know cold:</p>
+      <div class="grid-2">
+        <div class="card"><h4>Sell (Order-to-Cash)</h4><p><strong>Sales Order → Delivery → Customer Invoice → Payment.</strong> Confirming a sales order reserves stock and creates a delivery in Inventory; validating the delivery creates outgoing stock moves; the invoice draws from the order, and registering payment closes the loop and reconciles the bank.</p></div>
+        <div class="card"><h4>Buy (Procure-to-Pay)</h4><p><strong>Purchase Order → Receipt → Vendor Bill → Payment.</strong> Confirming a PO creates an expected receipt; validating the receipt increases stock and (in real-time valuation) posts an inventory journal entry; the vendor bill is checked against the PO and receipt (three-way match) before payment.</p></div>
+      </div>
+      <h3>Journals &amp; stock moves — the invisible engine</h3>
+      <p>Behind those friendly documents, two mechanisms do the real accounting work. <strong>Stock moves</strong> record every change in inventory location (including virtual locations like "Customers" and "Vendors"), giving a complete audit of where goods went. <strong>Journal entries</strong> are generated automatically — a validated delivery with real-time valuation, a confirmed invoice, a registered payment each post to the relevant journal. The FC must understand this so that a configuration choice (a product category's valuation method, a journal's default accounts) produces the right numbers in the financial reports.</p>
+      <h3>Multi-company &amp; multi-currency</h3>
+      <p>Odoo supports multiple companies in one database with inter-company rules, and multiple currencies with automatic rate handling and conversion. The FC decides whether a client's group structure needs separate companies (separate ledgers, inter-company transactions) or can live as branches/analytic distinctions — a decision with large downstream consequences.</p>
+      <div class="callout info">
+        <div class="c-title">ℹ️ Why this matters</div>
+        <p>Because the apps share one database and drive each other through these flows, the FC can rarely change one thing in isolation. Configuring how stock is valued affects the P&amp;L; changing a sales workflow affects when revenue is recognised. Holding the whole chain in mind is the difference between a senior FC and a button-clicker.</p>
+      </div>
+    </section>
+
+    <section id="config-vs-custom">
+      <span class="module-label">Module 5</span>
+      <h2>Configuration vs. customization</h2>
+      <p>The single most consequential judgment the FC makes, repeatedly, is <em>where on the spectrum</em> a given requirement should be met. There are three broad bands, and the FC's instinct is always to stay as far left as possible.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Band</th><th>What it covers</th><th>Who does it</th><th>Upgrade cost</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. Configuration (settings)</strong></td><td>Activating apps and features, settings toggles, defining master data, pricelists, journals, workflows, access rights, email/report templates.</td><td>FC</td><td>None — fully upgrade-safe.</td></tr>
+            <tr><td><strong>2. Studio (low-code)</strong></td><td>Custom fields, custom models, view edits, automated actions, approval rules, PDF report tweaks, simple custom apps — all without writing code.</td><td>FC</td><td>Low — Studio changes are designed to carry across upgrades, within limits.</td></tr>
+            <tr><td><strong>3. Developer customization</strong></td><td>Custom modules: Python business logic, XML views, OWL front-end components, integrations, complex automations.</td><td>Developer (from FC's spec)</td><td>Highest — bespoke code must be tested and often reworked on every major upgrade.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>The decision framework</h3>
+      <ul class="checks">
+        <li>Can a <strong>setting or standard feature</strong> do it? Use it. (Often the requirement only <em>seemed</em> custom.)</li>
+        <li>Does it need an <strong>extra field, a tweaked view, or a simple rule</strong>? Reach for <strong>Studio</strong>.</li>
+        <li>Does it need <strong>real business logic, a complex algorithm, or an external integration</strong>? Write a functional spec and hand it to a <strong>developer</strong>.</li>
+        <li>Could a small <strong>change to the client's process</strong> remove the need entirely? Always ask this first — the cheapest customization is the one you don't build.</li>
+      </ul>
+      <div class="callout warn">
+        <div class="c-title">⚠️ Over-customization is a slow trap</div>
+        <p>Every line of custom code is a permanent liability. It must be maintained, re-tested on each upgrade, and can break when Odoo changes its internals. A heavily customized Odoo eventually becomes un-upgradeable — clients get stranded on an old version, losing security patches and new features. "Configure first, customize last" is not dogma; it is what keeps the client able to take next year's Odoo release. When a client insists on bending the system to match an old habit, the FC's job is to ask whether the habit, not the software, should change.</p>
+      </div>
+    </section>
+
+    <section id="design">
+      <span class="module-label">Module 6</span>
+      <h2>Solution design — the FC's signature deliverable</h2>
+      <p>Solution design is where the FC earns the title. Taking the BA's prioritized requirements, the FC produces the <strong>solution design</strong>: the blueprint for how Odoo will deliver each one. It is the FC's signature artifact and the input to everything that follows.</p>
+      <p>A complete Odoo solution design covers:</p>
+      <div class="grid-2">
+        <div class="deliverable"><h4>Module selection</h4><p>Which Odoo apps are in scope, and explicitly which are not. The map from business areas to apps — and the integrations between them.</p></div>
+        <div class="deliverable"><h4>Configuration approach</h4><p>How each in-scope app will be set up: the key settings, the standard features used, and the workflows enabled. The "how standard Odoo meets the need" narrative.</p></div>
+        <div class="deliverable"><h4>Master-data design</h4><p>The structure of partners, the product catalogue and categories, units of measure, and the coding conventions the client will live with for years.</p></div>
+        <div class="deliverable"><h4>Chart of accounts</h4><p>The account structure, tax setup, journals, fiscal positions, and analytic structure — designed with the client's finance team, because it's the hardest thing to change later.</p></div>
+        <div class="deliverable"><h4>Workflows &amp; approval rules</h4><p>Where the business needs approval gates (purchase limits, discount thresholds, leave approvals) and how Odoo's standard or Studio approvals will enforce them.</p></div>
+        <div class="deliverable"><h4>Functional specs for gaps</h4><p>For the true gaps that configuration can't close, the precise specifications handed to developers — covered in depth in Module 10.</p></div>
+      </div>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>At TechNext, solution design rarely starts from a blank page. The FC begins from the <strong>vertical template</strong> for the client's industry — a pre-built configuration that already represents "standard Odoo for retail / manufacturing / services." Design then becomes a focused exercise: confirm the 80% the template already covers, and design only the 20% that is genuinely this client's own. The FC's judgment is concentrated exactly where it adds the most value.</p>
+      </div>
+    </section>
+
+    <section id="lifecycle">
+      <span class="module-label">Module 7</span>
+      <h2>The FC across the eight phases</h2>
+      <p>This is the core of the course. Here is exactly what the FC does in each phase of the <a href="methodology.html">Odoo lifecycle</a>. The FC is consulted in discovery, <em>leads</em> design, build, configuration, functional testing and training, and is hands-on through hypercare.</p>
+
+      <div class="phase"><div class="num">1</div><div>
+        <h4>Initiation &amp; kickoff</h4>
+        <p class="role-do">Consulted. The FC contributes Odoo feasibility reality to the charter — flagging early which goals are clearly standard, which smell like customization, and which Odoo edition or apps the scope implies. They help size the work so the PM's plan is grounded in what Odoo can actually do.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">2</div><div>
+        <h4>Discovery &amp; analysis</h4>
+        <p class="role-do">Consulted, often co-leading the fit-gap. While the BA elicits the as-is and to-be processes, the FC runs requirements against Odoo: for each one, is it standard, a configuration, a Studio tweak, or a true gap? The FC owns the <strong>fit-gap analysis</strong> — the most valuable output of discovery — because only they know the product well enough to make the call.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">3</div><div>
+        <h4>Solution design</h4>
+        <p class="role-do"><strong>Leads.</strong> The FC produces the solution design (Module 6): module selection, configuration approach, master-data and chart-of-accounts design, workflows, and the functional specs for developers. This is the FC's primary phase and signature deliverable.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">4</div><div>
+        <h4>Build &amp; configuration</h4>
+        <p class="role-do"><strong>Leads.</strong> The FC configures Odoo in the staging environment — apps, settings, master data, workflows, pricelists, taxes, access rights, templates — and assembles the working solution. They drive the configure-demo-refine cadence and coordinate developers building the approved customizations to their specs.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">5</div><div>
+        <h4>Data migration</h4>
+        <p class="role-do">Supports and validates. The BA usually owns the data mapping; the FC owns the <strong>load and validation</strong> — using Odoo's import framework, loading data into the right models in the right order (partners and products before transactions), and reconciling that opening balances, stock, and open documents are correct in Odoo.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">6</div><div>
+        <h4>Testing &amp; UAT</h4>
+        <p class="role-do"><strong>Leads functional testing.</strong> The FC writes and executes functional test scripts that walk the real business processes end-to-end, supports the client's UAT, and is the person who <strong>fixes configuration defects</strong> as they surface. They triage with the PM which defects are config fixes (theirs) versus code fixes (the developer's) versus genuine new scope.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">7</div><div>
+        <h4>Training &amp; go-live</h4>
+        <p class="role-do"><strong>Delivers training.</strong> The FC trains key users and end users on the configured system, often via train-the-trainer, and produces the user documentation. At cutover they support the PM's runbook — validating the final data load and confirming the live system behaves as tested.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">8</div><div>
+        <h4>Hypercare &amp; support</h4>
+        <p class="role-do"><strong>Leads early-life support.</strong> The FC is the front line for "how do I…" and "this isn't working" in the first weeks, resolving configuration issues fast, coaching users out of confusion, and feeding recurring questions back into the documentation and templates before handover to steady-state support.</p>
+      </div></div>
+    </section>
+
+    <section id="config-deep">
+      <span class="module-label">Module 8</span>
+      <h2>Configuration deep dive — what "configuring Odoo" really means</h2>
+      <p>"Configuration" sounds vague until you see the concrete work. Here is the substance of what the FC sets up to turn a blank Odoo into a client's running system.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Area</th><th>What the FC configures</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Accounting</strong></td><td>Chart of accounts, journals (sales, purchase, bank, cash, miscellaneous), tax rules and tax groups, fiscal positions, payment terms, bank accounts and reconciliation models.</td></tr>
+            <tr><td><strong>Products</strong></td><td>Product categories (which drive income/expense accounts and stock valuation), units of measure, product attributes &amp; variants, and the <strong>routes</strong> that decide procurement (buy, manufacture, make-to-order, dropship).</td></tr>
+            <tr><td><strong>Inventory</strong></td><td>Warehouses and locations, operation types (receipts, deliveries, internal &amp; manufacturing transfers), reordering rules, storage strategies, lots/serial tracking, and valuation method (standard / FIFO / average).</td></tr>
+            <tr><td><strong>Sales &amp; Purchase</strong></td><td>Pricelists (rules, discounts, currency), quotation templates, the sales workflow (delivery &amp; invoicing policy), and the purchase workflow (RFQ, vendor pricelists, reordering).</td></tr>
+            <tr><td><strong>Approval rules</strong></td><td>Discount-limit, purchase-amount, expense, and leave approvals — enforced via standard settings or Studio approval rules with the right approver hierarchy.</td></tr>
+            <tr><td><strong>Communications</strong></td><td>Email templates (order confirmations, invoices, reminders), automated follow-ups, and the outgoing/incoming mail servers.</td></tr>
+            <tr><td><strong>Documents</strong></td><td>Report layouts and branding (logo, colours, headers/footers), customized invoice and delivery-slip layouts, and document numbering sequences.</td></tr>
+            <tr><td><strong>Security</strong></td><td>User roles, access rights (which groups see which apps and actions), and <strong>record rules</strong> (which records a user can see — e.g. salespeople see only their own opportunities, or a branch sees only its own warehouse).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>A concrete example — setting up "sell from stock"</h3>
+      <ul class="checks">
+        <li>Create the product as <em>storable</em>, in a category whose accounting maps revenue and COGS correctly.</li>
+        <li>Set its route to <em>Buy</em> and define a reordering rule so the warehouse replenishes automatically.</li>
+        <li>Build a pricelist for the customer segment with the agreed discounts.</li>
+        <li>Configure the sales workflow: deliver then invoice, with a quotation template carrying the right terms.</li>
+        <li>Tune the delivery operation type and the invoice layout, then test the full Order → Delivery → Invoice → Payment flow before demoing it.</li>
+      </ul>
+      <p>None of this is code. All of it is the FC's craft — and all of it survives the next Odoo upgrade untouched.</p>
+    </section>
+
+    <section id="studio">
+      <span class="module-label">Module 9</span>
+      <h2>Odoo Studio &amp; low-code</h2>
+      <p>Odoo Studio is the FC's power tool: it extends Odoo <em>without code</em>, and it sits in band 2 of the configuration spectrum. Knowing Studio's reach — and its limits — is what lets a good FC close most "gaps" without ever booking developer time.</p>
+      <div class="grid-2">
+        <div class="card"><h4>What Studio can do</h4><ul><li><strong>Custom fields</strong> on existing models, of every type (text, selection, many2one relations, computed-by-formula).</li><li><strong>Custom models</strong> — entirely new objects with their own menus and views, for data Odoo doesn't track natively.</li><li><strong>View editing</strong> — drag-and-drop changes to forms, lists, kanban, and the addition of tabs, groups, and buttons.</li><li><strong>Automated actions</strong> — trigger an update, email, or activity when a record is created or changed.</li><li><strong>Approval rules</strong> — gate an action behind one or more approvers.</li><li><strong>PDF report editing</strong> — adjust and rebrand printed documents.</li><li><strong>Simple apps</strong> — build a small standalone app from scratch, no developer required.</li></ul></div>
+        <div class="card"><h4>Where Studio stops</h4><ul><li>Complex <strong>business logic</strong> — multi-step algorithms, intricate validations.</li><li><strong>External integrations</strong> — calling and syncing with third-party APIs.</li><li>Heavy <strong>performance-sensitive</strong> operations on large datasets.</li><li>Custom <strong>front-end / OWL</strong> components and bespoke interactive UI.</li><li>Anything requiring fine control over the <strong>ORM</strong> or transactional behaviour.</li></ul><p>When a requirement crosses these lines, the FC stops configuring and starts <em>specifying</em> — see Module 10.</p></div>
+      </div>
+      <div class="callout tip">
+        <div class="c-title">💡 The Studio judgment call</div>
+        <p>Studio is seductive — almost anything <em>looks</em> buildable. The discipline is restraint: a custom model duplicating something standard Odoo nearly does is technical debt with a friendly face. Use Studio for the genuine small gap; escalate the genuine large one. And document every Studio change, because invisible customizations are the ones that surprise the next person on the project.</p>
+      </div>
+    </section>
+
+    <section id="specs">
+      <span class="module-label">Module 10</span>
+      <h2>Writing functional specs for developers</h2>
+      <p>When configuration and Studio can't close a gap, the FC writes a <strong>functional specification</strong> and hands it to a developer. Per the <a href="methodology.html#handoffs">methodology</a>, the FC → developer handoff is <em>the most expensive ambiguity on the project</em>: a vague spec becomes the wrong build, discovered only at UAT, paid for twice. The FC's spec-writing is therefore a core skill, not an afterthought.</p>
+      <h3>What a good functional spec contains</h3>
+      <ul class="checks">
+        <li><strong>The business need</strong> — why this matters, in the client's terms, so the developer understands intent, not just instructions.</li>
+        <li><strong>The exact behaviour</strong> — precisely what should happen, step by step, including what happens on the standard path.</li>
+        <li><strong>The data</strong> — which models and fields are involved, what's stored, computed, or related, and any new fields required.</li>
+        <li><strong>The screens</strong> — where it appears in the UI: which views, buttons, menus, and what the user sees and does.</li>
+        <li><strong>The edge cases</strong> — the unhappy paths: empty values, partial quantities, cancellations, multi-company, permissions. Where specs are usually thin and bugs are usually born.</li>
+        <li><strong>Acceptance criteria</strong> — the testable conditions that prove it works, written before the build so "done" is unambiguous.</li>
+      </ul>
+      <div class="callout tip">
+        <div class="c-title">💡 Spec quality is the cheapest insurance on the project</div>
+        <p>An hour the FC spends sharpening a spec saves days of rework. The test of a good spec: a developer who has never met the client can build the right thing from it once, and the FC can verify it against the acceptance criteria without a conversation. If the spec needs a meeting to interpret, it isn't finished.</p>
+      </div>
+    </section>
+
+    <section id="demos">
+      <span class="module-label">Module 11</span>
+      <h2>Demos &amp; the configure-demo-refine loop</h2>
+      <p>The FC's working rhythm is iterative: configure a slice, <strong>demo</strong> it, capture feedback, refine, repeat. The demo is not a formality — it is the FC's primary instrument for confirming fit and catching misunderstandings while they're still cheap to fix.</p>
+      <h3>How to demo Odoo well</h3>
+      <ul class="checks">
+        <li><strong>Demo the process, not the screens.</strong> Walk a real scenario — "a customer orders, we ship, we invoice" — using the client's own products and language, not generic demo data.</li>
+        <li><strong>Show working software early</strong>, while it's small. A rough demo this week beats a polished one a month from now.</li>
+        <li><strong>Capture feedback as it lands</strong> — log every comment as a task, separating genuine corrections from new requests.</li>
+        <li><strong>Manage expectations</strong> — be explicit about what's configured versus still to come, so users don't mistake a gap for a defect.</li>
+      </ul>
+      <div class="callout warn">
+        <div class="c-title">⚠️ Demos are where scope creep is born</div>
+        <p>The most dangerous sentence in a demo is "oh, and while you're in there, could it also…". Each request is reasonable; the sum blows the budget. The FC notes it, thanks them, and routes anything beyond the agreed scope to the PM's change control — never silently building it because the demo made it feel free. Distinguishing a legitimate correction from a new requirement, live, is a senior FC skill.</p>
+      </div>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>TechNext FCs demo from <strong>pre-built industry demo instances</strong> — a retail or manufacturing Odoo already populated with realistic data. From day one the client sees something that looks like <em>their</em> business, which makes feedback concrete and accelerates the configure-demo-refine loop. The demo stops being "imagine this with your data" and becomes "here is roughly your business, what's different?"</p>
+      </div>
+    </section>
+
+    <section id="testing">
+      <span class="module-label">Module 12</span>
+      <h2>Testing &amp; training</h2>
+      <p>Two FC-led activities turn a configured system into an adopted one: proving it works, then teaching people to use it.</p>
+      <h3>Functional testing &amp; UAT</h3>
+      <p>The FC writes <strong>functional test scripts</strong> that exercise the real business processes end-to-end — not "click this field" but "process a customer order from quote to paid invoice." During UAT the FC supports the client's testers, triages every defect, and <strong>fixes the configuration defects</strong> directly. The discipline is separating config fixes (FC), code fixes (developer), and disguised new scope (PM's change control) — and never quietly absorbing the third.</p>
+      <h3>Training &amp; documentation</h3>
+      <p>The FC trains <strong>key users</strong> (who become internal champions) and <strong>end users</strong>, frequently via <strong>train-the-trainer</strong> so the client can sustain knowledge after go-live. They produce the user documentation — process guides written in the client's language, anchored to the configured system rather than generic Odoo manuals.</p>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>At TechNext, AI drafts the first version of both <strong>test scripts</strong> and <strong>training material</strong> directly from the requirements and the configured system — covering the standard paths automatically. The FC's job shifts from <em>writing</em> them from scratch to <em>validating and tailoring</em> them: adding the client-specific edge cases the AI can't know and confirming the scripts actually reflect this client's processes. Faster to draft, still human-verified where it counts.</p>
+      </div>
+    </section>
+
+    <section id="tools">
+      <span class="module-label">Module 13</span>
+      <h2>Tools — the FC's toolkit</h2>
+      <p>The FC works inside Odoo itself, plus a small set of platform tools. Fluency with these is part of the craft.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Tool</th><th>What it's for</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Odoo Studio</strong></td><td>Low-code extension: custom fields, models, views, automated actions, approvals, report editing (Module 9).</td></tr>
+            <tr><td><strong>Developer mode</strong></td><td>Unlocks technical settings — field names, model details, automation, sequences — the FC's window into how Odoo is wired.</td></tr>
+            <tr><td><strong>Import / export framework</strong></td><td>Odoo's built-in CSV/XLSX import with field mapping and external IDs — the FC's main data-loading and bulk-config tool.</td></tr>
+            <tr><td><strong>Odoo.sh staging branches</strong></td><td>Hosted environments where the FC builds and tests on a staging branch with a copy of production before anything reaches the live system.</td></tr>
+            <tr><td><strong>Technical settings</strong></td><td>Sequences, email/SMS templates, scheduled actions, fiscal localizations — the configuration surface beneath the friendly settings pages.</td></tr>
+            <tr><td><strong>Automation rules / server actions</strong></td><td>No/low-code automation: trigger emails, field updates, activities, or chained actions on record events.</td></tr>
+            <tr><td><strong>TechNext module catalog &amp; vertical templates</strong></td><td>The reusable, pre-built configurations and modules per industry — the FC's biggest accelerator.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>TechNext treats configuration as an <strong>asset, not a one-off</strong>. Repeatable setups are captured as <strong>config-as-code</strong> and as a <strong>vertical template library</strong>, so a new project starts at 80% configured rather than from zero. The FC's job becomes assembling and adapting proven building blocks instead of clicking the same settings on every engagement — and every project they finish makes the library a little richer for the next.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <span class="module-label">Module 14</span>
+      <h2>Skills &amp; KPIs that matter</h2>
+      <p>The FC is the most product-technical of the three core roles, but the soft skills decide whether the solution is adopted. The hard skills get the configuration right; the soft skills get the client to trust and use it.</p>
+      <h4>Hard skills</h4>
+      <div class="tags">
+        <span class="tag hard">Deep Odoo functional knowledge across modules</span>
+        <span class="tag hard">Accounting fundamentals</span>
+        <span class="tag hard">Business process knowledge</span>
+        <span class="tag hard">Studio / low-code</span>
+        <span class="tag hard">Data import &amp; mapping</span>
+        <span class="tag hard">Basic technical literacy (to talk to devs)</span>
+        <span class="tag hard">Functional testing</span>
+      </div>
+      <h4>Soft skills (the decisive ones)</h4>
+      <div class="tags">
+        <span class="tag soft">Client-facing presence</span>
+        <span class="tag soft">Demoing &amp; presentation</span>
+        <span class="tag soft">Translating between business &amp; tech</span>
+        <span class="tag soft">Patience in training</span>
+        <span class="tag soft">Problem-solving</span>
+        <span class="tag soft">Active listening</span>
+      </div>
+      <p>An FC must understand accounting well enough to design a chart of accounts and explain why an entry posted as it did; they must understand enough technical detail to write a spec a developer can build from — without needing to write the code themselves. <em>Enough technical literacy to brief and challenge a developer</em> is the bar, not full developer skill.</p>
+      <h3>Metrics &amp; KPIs the FC tracks</h3>
+      <div class="grid-3">
+        <div class="card kpi"><div class="big">Defect rate</div><div class="lbl">Configuration defects found in UAT</div></div>
+        <div class="card kpi"><div class="big">Fit-to-std</div><div class="lbl">Ratio of requirements met by standard vs. custom</div></div>
+        <div class="card kpi"><div class="big">Demo cycle</div><div class="lbl">Time per configure-demo-refine loop</div></div>
+        <div class="card kpi"><div class="big">UAT pass</div><div class="lbl">% of test scripts passing first time</div></div>
+        <div class="card kpi"><div class="big">Training</div><div class="lbl">User training completion &amp; competency</div></div>
+        <div class="card kpi"><div class="big">Custom count</div><div class="lbl">Number of customizations (lower is healthier)</div></div>
+      </div>
+      <p>The healthiest leading indicator is a <strong>high fit-to-standard ratio with a low customization count</strong>: it predicts an upgradeable system, a faster build, and a project that stayed inside Odoo's grain instead of fighting it.</p>
+    </section>
+
+    <section id="boundaries">
+      <span class="module-label">Module 15</span>
+      <h2>Boundaries &amp; the TechNext lean model</h2>
+      <p>Knowing where the FC stops is as important as knowing what they do.</p>
+      <ul class="checks">
+        <li><strong>FC vs. BA:</strong> the BA defines <em>what the business needs</em>; the FC decides <em>how Odoo meets it</em>. The BA owns the requirement; the FC owns the solution. The line is genuinely fuzzy — fit-gap analysis lives on the boundary — which is why TechNext often merges them into a single <strong>Solutions Engineer / Delivery Specialist</strong> seat in its A-Team.</li>
+        <li><strong>FC vs. developer:</strong> the FC <em>configures and specifies</em>; the developer <em>codes</em>. The FC should never need to write production Python to deliver a project — when they reach for code, they should be writing a spec instead.</li>
+        <li><strong>FC vs. PM:</strong> the FC makes the solution-design calls; the PM owns the schedule, budget, and the trade-off decisions. The FC tells the PM what a customization will take; the PM decides whether it's worth it.</li>
+      </ul>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ How the role changes in TechNext's A-Team</div>
+        <p>In TechNext's lean, automation-first model the FC's <em>repeatable configuration</em> stops being manual clicking and becomes <strong>vertical templates and config-as-code</strong> — assembled and applied at speed. Test scripts and training material are AI-drafted; demos start from pre-built industry instances. What stays irreducibly human is the <em>solution-design judgment</em> for the novel 20%: deciding how this client's genuinely unusual requirement should meet Odoo, where to draw the configure-vs-customize line, and how to keep the system upgradeable. <strong>Automate the configuration; never automate the design judgment.</strong></p>
+      </div>
+    </section>
+
+    <div class="nextprev">
+      <a href="business-analyst.html"><small>← Previous</small> The Business Analyst</a>
+      <a href="index.html"><small>Next →</small> Back to all courses</a>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="inner">
+    <span>© TechNext — Odoo ERP Implementation. Internal training curriculum.</span>
+    <span><a href="index.html">Home</a> · <a href="methodology.html">Methodology</a> · <a href="project-manager.html">PM</a> · <a href="business-analyst.html">BA</a></span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
