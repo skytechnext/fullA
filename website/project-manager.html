@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Project Manager — TechNext Academy</title>
+<meta name="description" content="A comprehensive course on the Project Manager role in an Odoo ERP implementation: responsibilities, lifecycle, deliverables, tools, skills, KPIs, pitfalls, and collaboration — in the context of TechNext." />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+<div class="progress-bar"></div>
+
+<nav class="topnav">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="logo">TN</span><span>TechNext Academy<small>Odoo Implementation Roles</small></span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="project-manager.html" class="active">Project Manager</a>
+      <a href="business-analyst.html">Business Analyst</a>
+      <a href="functional-consultant.html">Functional Consultant</a>
+    </div>
+  </div>
+</nav>
+
+<header class="course-head">
+  <div class="wrap">
+    <span class="eyebrow">Role Course · 01</span>
+    <h1>The Project Manager</h1>
+    <p class="lead">The owner of the outcome. The PM is the single person accountable for delivering the agreed Odoo system to the agreed scope, on time, on budget, and at acceptable risk — while keeping the client confident and the team unblocked. They rarely touch Odoo themselves; their product is <em>certainty</em>.</p>
+    <div class="course-meta">
+      <span class="chip">📋 14 modules</span>
+      <span class="chip">⏱️ Full read ~35 min</span>
+      <span class="chip">🎯 Delivery &amp; control</span>
+      <span class="chip">⚙️ Odoo context throughout</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="course-layout">
+
+  <aside class="toc">
+    <h4>Course contents</h4>
+    <ol>
+      <li><a href="#what">What the role really is</a></li>
+      <li><a href="#mindset">The PM mindset</a></li>
+      <li><a href="#responsibilities">The ten responsibility areas</a></li>
+      <li><a href="#lifecycle">The PM across the 8 phases</a></li>
+      <li><a href="#deliverables">Deliverables &amp; artifacts</a></li>
+      <li><a href="#scope-time-cost">Scope, time &amp; cost in depth</a></li>
+      <li><a href="#risk">Risk &amp; issue management</a></li>
+      <li><a href="#stakeholders">Stakeholder &amp; change management</a></li>
+      <li><a href="#tools">Tools — running it on Odoo</a></li>
+      <li><a href="#skills">Skills that matter</a></li>
+      <li><a href="#kpis">Metrics &amp; KPIs</a></li>
+      <li><a href="#day">A week in the life</a></li>
+      <li><a href="#pitfalls">Common pitfalls</a></li>
+      <li><a href="#boundaries">Boundaries &amp; the TechNext model</a></li>
+    </ol>
+  </aside>
+
+  <main class="content">
+
+    <section id="what">
+      <span class="module-label">Module 1</span>
+      <h2>What the role really is</h2>
+      <p>A Project Manager in an ERP context is not a note-taker who chases status. The PM is the person the client sponsor and the TechNext leadership both hold responsible when they ask one question: <em>"Will this go live, as promised, without blowing up?"</em> Everything the PM does ladders up to answering that question honestly and then making the answer "yes."</p>
+      <p>On an Odoo implementation specifically, the PM is the connective tissue between three worlds that naturally pull apart:</p>
+      <ul>
+        <li><strong>The client's business reality</strong> — operations that must keep running while the project happens, a budget that's real, and political dynamics between departments.</li>
+        <li><strong>The delivery team</strong> — the Business Analyst, Functional Consultant, and developers, who need clear priorities and protection from churn.</li>
+        <li><strong>The Odoo platform itself</strong> — its release cycle, its standard capabilities, its limits, and (for hosted projects) the Odoo.sh or Odoo Online environment.</li>
+      </ul>
+      <blockquote>The PM's deliverable is not a Gantt chart. It is a go-live the client trusts, reached without surprises. The chart is just one instrument on the dashboard.</blockquote>
+      <div class="callout">
+        <div class="c-title">Definition</div>
+        <p><strong>Project Management</strong> is the application of knowledge, skills, tools, and techniques to project activities to meet the project requirements — balancing the competing demands of scope, schedule, cost, quality, resources, and risk. In ERP, add a seventh constraint that dominates the rest: <strong>business change adoption</strong>. A perfectly configured Odoo that nobody uses is a failed project.</p>
+      </div>
+    </section>
+
+    <section id="mindset">
+      <span class="module-label">Module 2</span>
+      <h2>The PM mindset</h2>
+      <p>Before the mechanics, the mental model. Strong ERP PMs share a handful of operating instincts:</p>
+      <div class="grid-2">
+        <div class="card"><h4>Outcome over activity</h4><p>"We held 12 meetings" is not progress. "The data migration is signed off" is. The PM measures the project in completed, verifiable outcomes, not motion.</p></div>
+        <div class="card"><h4>Surface bad news early</h4><p>A slipping date discovered in week 2 is a planning adjustment. The same slip discovered the week before go-live is a crisis. Good PMs are professionally pessimistic and reward early warnings.</p></div>
+        <div class="card"><h4>Protect the team's focus</h4><p>The PM absorbs ambiguity, politics, and scope pressure so the FC and BA can do deep work. A PM who passes chaos straight through to the team isn't managing — they're forwarding.</p></div>
+        <div class="card"><h4>Everything is a trade-off</h4><p>You cannot add scope without touching time, cost, or quality. The PM's job is to make those trade-offs explicit and get the right person to decide them — never to silently absorb them.</p></div>
+      </div>
+    </section>
+
+    <section id="responsibilities">
+      <span class="module-label">Module 3</span>
+      <h2>The ten responsibility areas</h2>
+      <p>The PM's job decomposes into ten knowledge areas. On a small Odoo project one person covers all ten; on a large one, some are delegated. Either way the PM is accountable for all of them.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Area</th><th>What it means</th><th>On a TechNext Odoo project</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. Scope</strong></td><td>Defining and controlling exactly what is and isn't being delivered.</td><td>Which modules, which processes, which reports, which integrations — and a hard line against "while you're in there…" requests.</td></tr>
+            <tr><td><strong>2. Schedule</strong></td><td>The plan of activities, dependencies, and dates.</td><td>Discovery → config → migration → UAT → go-live, with realistic durations and the client's blackout dates (month-end, peak season) respected.</td></tr>
+            <tr><td><strong>3. Cost</strong></td><td>Budget, estimates, and burn against them.</td><td>Tracking consulting days used vs. sold; flagging when a "small" custom request will eat the margin.</td></tr>
+            <tr><td><strong>4. Quality</strong></td><td>Fitness for purpose and acceptance criteria.</td><td>Defining what "done" means for each deliverable and ensuring UAT actually proves it.</td></tr>
+            <tr><td><strong>5. Resources</strong></td><td>People and environments, available when needed.</td><td>Booking the FC's time, ensuring the client frees up key users, provisioning the Odoo.sh staging environment.</td></tr>
+            <tr><td><strong>6. Communication</strong></td><td>The right information to the right people at the right time.</td><td>Weekly status to the sponsor, daily unblocking for the team, escalation paths everyone knows.</td></tr>
+            <tr><td><strong>7. Risk</strong></td><td>Anticipating what could go wrong and acting before it does.</td><td>"The client's legacy data is dirty" → schedule a data-cleansing sprint now, not at cutover.</td></tr>
+            <tr><td><strong>8. Stakeholders</strong></td><td>Identifying and managing everyone with an interest.</td><td>The sponsor, the department heads, the skeptical warehouse supervisor who can quietly kill adoption.</td></tr>
+            <tr><td><strong>9. Procurement / vendor</strong></td><td>Managing third parties and the platform vendor.</td><td>Odoo Enterprise licensing, the shipping-carrier API vendor, the payment gateway — coordinating their timelines.</td></tr>
+            <tr><td><strong>10. Integration</strong></td><td>Making all the above work as one coherent whole.</td><td>Ensuring the config the FC built, the data the BA mapped, and the training the team gave all converge on go-live day.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="lifecycle">
+      <span class="module-label">Module 4</span>
+      <h2>The PM across the eight phases</h2>
+      <p>This is the core of the course. Here is exactly what the PM does in each phase of the <a href="methodology.html">Odoo lifecycle</a>.</p>
+
+      <div class="phase"><div class="num">1</div><div>
+        <h4>Initiation &amp; kickoff</h4>
+        <p class="role-do">Write the <strong>project charter</strong>: objectives, success criteria, scope baseline, high-level timeline, budget, governance, and roles. Confirm the executive sponsor. Run the kickoff meeting where the client and TechNext agree on what "done" means. Establish the communication and escalation plan. <em>Get the definition of success in writing before any work starts</em> — this document is what you'll point to when scope creep arrives.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">2</div><div>
+        <h4>Discovery &amp; analysis</h4>
+        <p class="role-do">The BA leads the work; the PM owns the outcome. Schedule the discovery workshops, make sure the right client people attend, and keep discovery time-boxed (it can sprawl forever). Watch for scope expanding silently as new requirements surface, and route every new ask through the change process. Begin the risk register from what discovery reveals.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">3</div><div>
+        <h4>Solution design</h4>
+        <p class="role-do">As the FC designs the Odoo solution, the PM converts it into a plan: what gets configured, what gets developed, what gets integrated, in what order, by whom, by when. Lock the scope baseline. Get formal client sign-off on the design and the SOW so that later "but I assumed…" conversations have a reference point.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">4</div><div>
+        <h4>Build &amp; configuration</h4>
+        <p class="role-do">Run the delivery cadence — typically short configure-demo-refine cycles. Track progress against plan, remove blockers daily, manage the developer queue for any customizations, and keep the client informed with regular demos so there are no surprises at UAT. Guard the change log: every approved change updates scope, time, and cost.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">5</div><div>
+        <h4>Data migration</h4>
+        <p class="role-do">Often the riskiest phase and the one PMs underestimate. Own the migration plan and timeline: who extracts, who cleans, who maps, who validates, and the cutover sequencing. Schedule at least one full trial migration before go-live. Make data quality the client's responsibility explicit and early — dirty source data is the most common go-live delay.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">6</div><div>
+        <h4>Testing &amp; UAT</h4>
+        <p class="role-do">Plan and chase User Acceptance Testing. Ensure test scenarios cover real business processes, that client testers actually show up, and that defects are logged, triaged, and tracked to closure. Hold the formal acceptance gate: <strong>no go-live without signed UAT</strong>. Negotiate which defects are go-live blockers vs. fix-in-hypercare.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">7</div><div>
+        <h4>Training &amp; go-live</h4>
+        <p class="role-do">Own the <strong>cutover plan</strong> — the hour-by-hour runbook for the switch: final data load, validation checks, sign-offs, and a go/no-go decision with named criteria. Confirm users are trained. Decide the cutover strategy (big-bang vs. phased) with the client. On go-live day the PM runs the room: executes the runbook, communicates status, and owns the call to proceed or roll back.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">8</div><div>
+        <h4>Hypercare &amp; support</h4>
+        <p class="role-do">Stand up intensive early-life support: a clear channel for issues, fast triage, and daily check-ins for the first week or two. Track issue volume trending down as the signal to exit hypercare. Run the project closure: final acceptance, lessons-learned review, handover to steady-state support, and the commercial close-out.</p>
+      </div></div>
+    </section>
+
+    <section id="deliverables">
+      <span class="module-label">Module 5</span>
+      <h2>Deliverables &amp; artifacts</h2>
+      <p>These are the tangible documents the PM produces and maintains. Each one exists to answer a recurring question before it's asked.</p>
+      <div class="grid-2">
+        <div class="deliverable"><h4>Project Charter</h4><p>The founding document: why, what success looks like, scope, budget, timeline, sponsor, governance. Signed before work begins.</p></div>
+        <div class="deliverable"><h4>Project Plan / Schedule</h4><p>Phases, tasks, dependencies, durations, milestones, owners. Maintained as a living Gantt, not a one-time artifact.</p></div>
+        <div class="deliverable"><h4>RACI matrix</h4><p>Who is Responsible, Accountable, Consulted, Informed for each major activity — removes "I thought you were doing that."</p></div>
+        <div class="deliverable"><h4>RAID log</h4><p>Risks, Assumptions, Issues, Dependencies — the PM's situational-awareness dashboard, reviewed every week.</p></div>
+        <div class="deliverable"><h4>Status report</h4><p>Weekly: % complete, what's done, what's next, budget burn, top risks, decisions needed. Same format every week so trends are visible.</p></div>
+        <div class="deliverable"><h4>Change request log</h4><p>Every scope change with its impact on time/cost/quality and the approval. The PM's defense against scope creep.</p></div>
+        <div class="deliverable"><h4>Communication plan</h4><p>Who hears what, how often, through which channel, and the escalation path when something's stuck.</p></div>
+        <div class="deliverable"><h4>Go-live / cutover runbook</h4><p>The hour-by-hour checklist for switch-over day, including go/no-go criteria and the rollback plan.</p></div>
+        <div class="deliverable"><h4>Lessons-learned report</h4><p>Closure document feeding the next project — at TechNext this feeds the knowledge base and improves the templates.</p></div>
+      </div>
+    </section>
+
+    <section id="scope-time-cost">
+      <span class="module-label">Module 6</span>
+      <h2>Scope, time &amp; cost — the iron triangle in depth</h2>
+      <p>The three classic constraints are linked: change one and at least one other must move. The PM's craft is making that relationship visible to whoever is asking for the change.</p>
+      <h3>Scope management</h3>
+      <p>Scope is defined in the SOW and design sign-off. The discipline is the <strong>change control process</strong>: any new requirement is written up, its impact on time and cost is estimated, and the client sponsor decides whether to approve it (and pay/wait for it). The deadly anti-pattern is the "small favor" — a dozen unlogged small changes that quietly consume the budget and the timeline.</p>
+      <div class="callout warn">
+        <div class="c-title">⚠️ Scope creep on ERP projects</div>
+        <p>ERP scope creep is rarely one big request. It's "can we also just add this field / this report / this approval step" repeated fifty times. Each is reasonable; the sum is a blown budget. The PM's job is to log every one and make the cumulative cost visible — not to be the "no" person, but to make trade-offs honest.</p>
+      </div>
+      <h3>Schedule management</h3>
+      <p>Build the schedule backward from constraints: the client's hard go-live driver (fiscal year, contract end, season), their blackout periods, and the team's real availability. Identify the <strong>critical path</strong> — the chain of dependent tasks that determines the end date. On Odoo projects the critical path usually runs through data migration and UAT, not configuration.</p>
+      <h3>Cost management</h3>
+      <p>For TechNext's productized fixed-price packages, "cost" management is really <strong>margin protection</strong>: tracking consulting days consumed vs. days sold, and catching the moment a project starts eating its own profit. The PM is the early-warning system for an engagement going underwater.</p>
+    </section>
+
+    <section id="risk">
+      <span class="module-label">Module 7</span>
+      <h2>Risk &amp; issue management</h2>
+      <p>A <strong>risk</strong> is something that <em>might</em> happen; an <strong>issue</strong> is a risk that <em>has</em> happened. The PM manages both, but the value is in the risk work — handling things before they become issues.</p>
+      <h3>The risk process</h3>
+      <ul class="checks">
+        <li><strong>Identify</strong> — brainstorm what could go wrong, continuously, with the team.</li>
+        <li><strong>Assess</strong> — rate each by probability × impact to prioritize attention.</li>
+        <li><strong>Plan a response</strong> — avoid, mitigate, transfer, or accept each one, with a named owner.</li>
+        <li><strong>Monitor</strong> — review the register every week; risks change as the project moves.</li>
+      </ul>
+      <h3>The usual suspects on an Odoo implementation</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Risk</th><th>Typical mitigation</th></tr></thead>
+          <tbody>
+            <tr><td>Dirty / incomplete legacy data</td><td>Start data cleansing early; make it the client's owned task; run a trial migration well before cutover.</td></tr>
+            <tr><td>Key users unavailable (busy with day jobs)</td><td>Secure named time commitments in the charter; escalate to the sponsor when attendance slips.</td></tr>
+            <tr><td>Requirements that really need custom dev</td><td>Surface in design, not build; challenge whether standard Odoo + a process change can avoid the customization.</td></tr>
+            <tr><td>Low user adoption / change resistance</td><td>Involve users early; invest in training and communication; identify and convert skeptics.</td></tr>
+            <tr><td>Scope creep</td><td>Strict change control; visible cumulative impact.</td></tr>
+            <tr><td>Integration with a third-party system slips</td><td>Identify integration dependencies on day one; get the third party committed to dates in writing.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="stakeholders">
+      <span class="module-label">Module 8</span>
+      <h2>Stakeholder &amp; change management</h2>
+      <p>ERP projects are change projects. The technology usually works; the rollout fails when people don't adopt it. The PM (with the sponsor) owns the human side.</p>
+      <h3>Map the stakeholders</h3>
+      <p>Classify everyone by <strong>influence</strong> and <strong>interest</strong>. The high-influence/high-interest sponsor gets managed closely; the low-interest finance clerk gets kept informed. The dangerous quadrant is high-influence/low-interest people who can veto adoption without engaging — the PM brings them in deliberately.</p>
+      <h3>The sponsor relationship</h3>
+      <p>The executive sponsor is the PM's most important relationship. They unblock resources, make the decisions above the PM's authority, and carry the message to the rest of the business. A disengaged sponsor is itself a top risk — the PM works actively to keep them engaged and informed.</p>
+      <div class="callout tip">
+        <div class="c-title">💡 Pro tip</div>
+        <p>Find the influential skeptic early — often a long-tenured supervisor who built the current way of working. Win them over and they become your best change agent. Ignore them and they'll quietly campaign against the new system from inside.</p>
+      </div>
+    </section>
+
+    <section id="tools">
+      <span class="module-label">Module 9</span>
+      <h2>Tools — running the project on Odoo itself</h2>
+      <p>At TechNext, the PM dogfoods Odoo to run the project. This is both efficient and a live demonstration of the product to the client.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Need</th><th>Odoo app</th><th>How the PM uses it</th></tr></thead>
+          <tbody>
+            <tr><td>Task &amp; phase tracking</td><td>Odoo Project</td><td>Each phase a stage, each deliverable a task with an owner and deadline; templated task lists per package.</td></tr>
+            <tr><td>Timeline / dependencies</td><td>Project Gantt view</td><td>Visualize the critical path and milestones; spot slippage.</td></tr>
+            <tr><td>Effort &amp; budget burn</td><td>Timesheets</td><td>Track consulting days used vs. sold to protect margin.</td></tr>
+            <tr><td>Resource scheduling</td><td>Planning</td><td>Allocate the FC and developers across concurrent projects.</td></tr>
+            <tr><td>Client transparency</td><td>Project portal / sharing</td><td>Give the client a live read-only view of progress — fewer status meetings.</td></tr>
+            <tr><td>Issue &amp; defect tracking</td><td>Project / Helpdesk</td><td>UAT defects and hypercare tickets logged, triaged, and tracked to closure.</td></tr>
+            <tr><td>Documents &amp; sign-off</td><td>Documents / Sign</td><td>Store the charter and design docs; collect formal e-signature on acceptance gates.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>Because TechNext runs delivery on Odoo, much of the PM's reporting toil is automated: status digests and the client portal update themselves from task and timesheet data. The PM's time shifts from <em>compiling</em> reports to <em>acting</em> on what they reveal.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <span class="module-label">Module 10</span>
+      <h2>Skills that matter</h2>
+      <p>ERP project management is unusually weighted toward soft skills — the hard mechanics can be learned in weeks; the judgment takes years.</p>
+      <h4>Hard skills</h4>
+      <div class="tags">
+        <span class="tag hard">Planning &amp; scheduling</span>
+        <span class="tag hard">Budgeting &amp; estimation</span>
+        <span class="tag hard">Risk management</span>
+        <span class="tag hard">Scope / change control</span>
+        <span class="tag hard">Working knowledge of Odoo &amp; ERP concepts</span>
+        <span class="tag hard">Agile &amp; Waterfall methods</span>
+        <span class="tag hard">Reporting &amp; metrics</span>
+      </div>
+      <h4>Soft skills (the decisive ones)</h4>
+      <div class="tags">
+        <span class="tag soft">Communication &amp; facilitation</span>
+        <span class="tag soft">Stakeholder influence</span>
+        <span class="tag soft">Negotiation</span>
+        <span class="tag soft">Conflict resolution</span>
+        <span class="tag soft">Decisiveness under pressure</span>
+        <span class="tag soft">Calm in a crisis</span>
+        <span class="tag soft">Empathy for the client's change</span>
+      </div>
+      <p>A PM does not need to be able to configure Odoo — but they must understand it well enough to call a bad estimate, challenge an unnecessary customization, and translate between the FC and the client. <em>Enough ERP literacy to ask the right hard questions</em> is the bar.</p>
+    </section>
+
+    <section id="kpis">
+      <span class="module-label">Module 11</span>
+      <h2>Metrics &amp; KPIs the PM tracks</h2>
+      <div class="grid-3">
+        <div class="card kpi"><div class="big">SPI</div><div class="lbl">Schedule Performance — are we on time vs. plan?</div></div>
+        <div class="card kpi"><div class="big">CPI</div><div class="lbl">Cost Performance — are we on budget / margin?</div></div>
+        <div class="card kpi"><div class="big">% Scope</div><div class="lbl">Delivered vs. baselined scope</div></div>
+        <div class="card kpi"><div class="big">Defects</div><div class="lbl">Open vs. closed; trend through UAT &amp; hypercare</div></div>
+        <div class="card kpi"><div class="big">Burn</div><div class="lbl">Consulting days used vs. sold</div></div>
+        <div class="card kpi"><div class="big">CSAT</div><div class="lbl">Client satisfaction at milestones &amp; go-live</div></div>
+      </div>
+      <p>The single most important leading indicator is <strong>defect and issue trend</strong>: a backlog that won't shrink as go-live approaches is the clearest sign a project is in trouble, regardless of what the % complete says.</p>
+    </section>
+
+    <section id="day">
+      <span class="module-label">Module 12</span>
+      <h2>A week in the life</h2>
+      <p>An illustrative week for a TechNext PM running two concurrent Odoo implementations in the build phase.</p>
+      <div class="timeline">
+        <div class="slot"><div class="t">MON</div> Review the RAID log for both projects; send the weekly status reports; confirm the week's demos are scheduled and the right client people will attend.</div>
+        <div class="slot"><div class="t">TUE</div> Internal stand-up with the FC and BA — what's blocked, what's at risk. Chase the client on the data extract that's three days late (now a flagged risk).</div>
+        <div class="slot"><div class="t">WED</div> Run the configure-demo session with Client A; capture feedback as tasks, not scope changes — and route the two real new requests through change control.</div>
+        <div class="slot"><div class="t">THU</div> Plan the upcoming UAT for Client B: build the test schedule, confirm testers, walk the FC through the acceptance gate. Update the cutover runbook draft.</div>
+        <div class="slot"><div class="t">FRI</div> Sponsor check-in calls; update both Gantts and budget burn; triage the week's defects; write next week's priorities. Decide nothing is on fire over the weekend.</div>
+      </div>
+    </section>
+
+    <section id="pitfalls">
+      <span class="module-label">Module 13</span>
+      <h2>Common pitfalls — and how to avoid them</h2>
+      <div class="grid-2">
+        <div class="card"><h4>❌ Letting discovery sprawl</h4><p>Open-ended requirements gathering with no time-box. <strong>Fix:</strong> hard-limit discovery, and push undecided items to a parking lot with owners and dates.</p></div>
+        <div class="card"><h4>❌ Treating data migration as an afterthought</h4><p>Leaving it to the last sprint. <strong>Fix:</strong> start data work in parallel with config; run a trial load early; make data quality the client's owned task from day one.</p></div>
+        <div class="card"><h4>❌ Saying yes to "small" changes</h4><p>Unlogged favors that compound. <strong>Fix:</strong> every change goes through the log with its time/cost impact visible.</p></div>
+        <div class="card"><h4>❌ Skipping or rushing UAT</h4><p>Going live on the FC's confidence instead of the client's sign-off. <strong>Fix:</strong> a real acceptance gate with named testers and signed approval.</p></div>
+        <div class="card"><h4>❌ Under-investing in training &amp; change</h4><p>A perfect system nobody adopts. <strong>Fix:</strong> budget training and communication as real deliverables, not a final-week add-on.</p></div>
+        <div class="card"><h4>❌ Reporting green until it's suddenly red</h4><p>Optimism that hides slippage until it's too late to fix. <strong>Fix:</strong> honest status, early bad news, and a culture that rewards the warning.</p></div>
+      </div>
+    </section>
+
+    <section id="boundaries">
+      <span class="module-label">Module 14</span>
+      <h2>Boundaries &amp; the TechNext lean model</h2>
+      <p>Knowing where the PM stops is as important as knowing what they do.</p>
+      <ul class="checks">
+        <li><strong>PM vs. BA:</strong> the BA decides <em>what the business needs</em>; the PM decides <em>when it gets delivered and at what cost</em>. The PM doesn't write requirements; the BA doesn't manage the budget.</li>
+        <li><strong>PM vs. FC:</strong> the FC decides <em>how Odoo will solve it</em>; the PM doesn't make solution-design calls. But the PM <em>does</em> challenge whether a customization is worth its time and cost.</li>
+        <li><strong>PM vs. sponsor:</strong> the sponsor makes the business decisions above the PM's authority (extra budget, scope trade-offs, go/no-go); the PM frames those decisions clearly and recommends.</li>
+      </ul>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ How the role changes in TechNext's A-Team</div>
+        <p>In TechNext's lean, automation-first model there is rarely a dedicated PM seat. The <em>accountability</em> doesn't vanish — it's absorbed by the Solutions Engineer (client-facing governance) and the platform (automated status, templated plans, portal transparency). What stays irreducibly human is the judgment in this course: the trade-off calls, the risk reads, the hard conversations, and the go/no-go decision. <strong>Automate the reporting; never automate the accountability.</strong></p>
+      </div>
+    </section>
+
+    <div class="nextprev">
+      <a href="methodology.html"><small>← Previous</small> The Methodology</a>
+      <a href="business-analyst.html"><small>Next course →</small> The Business Analyst</a>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="inner">
+    <span>© TechNext — Odoo ERP Implementation. Internal training curriculum.</span>
+    <span><a href="index.html">Home</a> · <a href="methodology.html">Methodology</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a></span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

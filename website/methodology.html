@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Odoo Implementation Lifecycle — TechNext Academy</title>
+<meta name="description" content="The end-to-end Odoo ERP implementation methodology used at TechNext, and how the Project Manager, Business Analyst, and Functional Consultant collaborate across every phase." />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+<div class="progress-bar"></div>
+
+<nav class="topnav">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="logo">TN</span><span>TechNext Academy<small>Odoo Implementation Roles</small></span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="methodology.html" class="active">Methodology</a>
+      <a href="project-manager.html">Project Manager</a>
+      <a href="business-analyst.html">Business Analyst</a>
+      <a href="functional-consultant.html">Functional Consultant</a>
+    </div>
+  </div>
+</nav>
+
+<header class="course-head">
+  <div class="wrap">
+    <span class="eyebrow">Foundation Course</span>
+    <h1>The Odoo Implementation Lifecycle</h1>
+    <p class="lead">Every role in this curriculum operates inside one shared delivery lifecycle. Learn the phases once here, then each role course shows you exactly what that role does in each phase.</p>
+    <div class="course-meta">
+      <span class="chip">🧭 Read this first</span>
+      <span class="chip">8 phases</span>
+      <span class="chip">RACI included</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="course-layout">
+
+  <aside class="toc">
+    <h4>On this page</h4>
+    <ol>
+      <li><a href="#methods">Methodologies &amp; how TechNext chooses</a></li>
+      <li><a href="#phases">The 8 phases</a></li>
+      <li><a href="#raci">Who does what (RACI)</a></li>
+      <li><a href="#handoffs">The critical handoffs</a></li>
+      <li><a href="#automation">Where automation fits</a></li>
+    </ol>
+  </aside>
+
+  <main class="content">
+
+    <section id="methods">
+      <span class="module-label">Module 0.1</span>
+      <h2>Methodologies — and how TechNext chooses</h2>
+      <p>An ERP implementation is not just software installation; it is organizational change delivered through software. Three broad methodologies are used in the industry, and TechNext blends them.</p>
+      <div class="grid-3">
+        <div class="card"><h4>Waterfall</h4><p>Sequential phases, heavy upfront documentation, fixed scope. Predictable and easy to price, but unforgiving of discovery-stage mistakes. Good for small, well-understood scopes.</p></div>
+        <div class="card"><h4>Agile / iterative</h4><p>Configure in sprints, demo early and often, let requirements firm up through feedback. Great for complex or fuzzy scopes; harder to fix-price.</p></div>
+        <div class="card"><h4>Odoo's own approach</h4><p>Odoo SA promotes a fast, iterative method: configure standard Odoo first, show it to users early, and only customize what truly can't be covered by standard features ("fit-to-standard").</p></div>
+      </div>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext method</div>
+        <p>TechNext runs a <strong>hybrid, fit-to-standard, iterative</strong> model: fixed-scope productized packages (Waterfall-like commercial certainty) delivered through short configure-demo-refine loops (Agile execution), starting from pre-built vertical templates so "standard Odoo" is already 80% of the answer. <strong>Customize last, not first.</strong></p>
+      </div>
+    </section>
+
+    <section id="phases">
+      <span class="module-label">Module 0.2</span>
+      <h2>The eight phases of an Odoo project</h2>
+      <p>This is the spine of the whole curriculum. Each role course revisits these exact phases from its own point of view.</p>
+
+      <div class="phase"><div class="num">1</div><div><h4>Initiation &amp; kickoff</h4><p class="role-do">Charter, sponsor alignment, success criteria, scope baseline, team and governance set up. The project gets its definition of "done" and "won."</p></div></div>
+      <div class="phase"><div class="num">2</div><div><h4>Discovery &amp; analysis</h4><p class="role-do">Elicit and document the business processes (as-is), define the target (to-be), run fit-gap against Odoo, agree on what's standard vs. custom.</p></div></div>
+      <div class="phase"><div class="num">3</div><div><h4>Solution design</h4><p class="role-do">Decide how Odoo will deliver each requirement: module selection, configuration approach, integrations, data model, and functional specs for any custom development.</p></div></div>
+      <div class="phase"><div class="num">4</div><div><h4>Build &amp; configuration</h4><p class="role-do">Configure Odoo, develop the approved customizations and integrations, and assemble the solution in a staging environment.</p></div></div>
+      <div class="phase"><div class="num">5</div><div><h4>Data migration</h4><p class="role-do">Extract, clean, map, transform, and load legacy data (customers, products, open invoices, stock, history) — and reconcile it.</p></div></div>
+      <div class="phase"><div class="num">6</div><div><h4>Testing &amp; UAT</h4><p class="role-do">Functional testing, integration testing, and User Acceptance Testing where the client signs off that the system does what was agreed.</p></div></div>
+      <div class="phase"><div class="num">7</div><div><h4>Training &amp; go-live</h4><p class="role-do">Train end users and key users, finalize the cutover plan, migrate production data, flip the switch, and start operating on Odoo.</p></div></div>
+      <div class="phase"><div class="num">8</div><div><h4>Hypercare &amp; support</h4><p class="role-do">Intensive post-go-live support, rapid issue resolution, stabilization, then transition to steady-state support and continuous improvement.</p></div></div>
+    </section>
+
+    <section id="raci">
+      <span class="module-label">Module 0.3</span>
+      <h2>Who does what — the RACI across phases</h2>
+      <p>R = Responsible (does the work), A = Accountable (owns the outcome), C = Consulted, I = Informed. This is the map of how the three pillars share the lifecycle.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Phase</th><th>Project Manager</th><th>Business Analyst</th><th>Functional Consultant</th></tr></thead>
+          <tbody>
+            <tr><td>1. Initiation</td><td><strong>A/R</strong></td><td>C</td><td>C</td></tr>
+            <tr><td>2. Discovery &amp; analysis</td><td>A</td><td><strong>R</strong></td><td>C / R</td></tr>
+            <tr><td>3. Solution design</td><td>A</td><td>C</td><td><strong>R</strong></td></tr>
+            <tr><td>4. Build &amp; configuration</td><td>A</td><td>I</td><td><strong>R</strong></td></tr>
+            <tr><td>5. Data migration</td><td>A</td><td><strong>R</strong> (mapping)</td><td>R (load/validate)</td></tr>
+            <tr><td>6. Testing &amp; UAT</td><td>A</td><td>R (test cases)</td><td><strong>R</strong> (test &amp; fix)</td></tr>
+            <tr><td>7. Training &amp; go-live</td><td><strong>A/R</strong></td><td>C</td><td><strong>R</strong> (train)</td></tr>
+            <tr><td>8. Hypercare</td><td>A</td><td>I</td><td><strong>R</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout info">
+        <div class="c-title">ℹ️ Note</div>
+        <p>The PM is <strong>Accountable</strong> in almost every phase — that is the definition of the role: they own the outcome even when others do the work. In TechNext's lean model these letters get combined into fewer people, but the letters themselves never disappear.</p>
+      </div>
+    </section>
+
+    <section id="handoffs">
+      <span class="module-label">Module 0.4</span>
+      <h2>The critical handoffs (where projects die)</h2>
+      <p>Most failed ERP projects fail at a handoff, not in the work itself. The three big ones:</p>
+      <ul class="checks">
+        <li><strong>BA → FC:</strong> requirements that are clear, prioritized, and testable. A vague requirement becomes a wrong configuration becomes a failed UAT.</li>
+        <li><strong>FC → Developer:</strong> a functional spec precise enough that a developer builds the right thing once. Ambiguity here is the most expensive ambiguity on the project.</li>
+        <li><strong>Project → Client (go-live):</strong> a system the users were trained on, data they trust, and a support net for week one. Skipping training or hypercare is how a technically-successful project still "fails."</li>
+      </ul>
+    </section>
+
+    <section id="automation">
+      <span class="module-label">Module 0.5</span>
+      <h2>Where automation fits (the TechNext layer)</h2>
+      <p>TechNext's lean model wraps this lifecycle in automation so a small team can run it. As you read each role course, notice which tasks are <em>judgment</em> (kept human) and which are <em>toil</em> (automated):</p>
+      <div class="grid-2">
+        <div class="card"><h4>Automated / templated</h4><ul><li>Demo environment provisioning per industry</li><li>Discovery transcript → draft requirements</li><li>Vertical configuration loaded as config-as-code</li><li>Test case &amp; UAT script generation</li><li>Status reporting to a client portal</li><li>Tier-1 support answers</li></ul></div>
+        <div class="card"><h4>Kept human (judgment)</h4><ul><li>The client relationship and trust</li><li>Solution design for the novel 20%</li><li>Validating AI-drafted requirements &amp; specs</li><li>Change management and training empathy</li><li>Sign-off on anything client-facing</li><li>Risk and commercial decisions</li></ul></div>
+      </div>
+    </section>
+
+    <div class="nextprev">
+      <a href="index.html"><small>← Back</small> Home</a>
+      <a href="project-manager.html"><small>Next course →</small> The Project Manager</a>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="inner">
+    <span>© TechNext — Odoo ERP Implementation. Internal training curriculum.</span>
+    <span><a href="index.html">Home</a> · <a href="project-manager.html">PM</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a></span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
