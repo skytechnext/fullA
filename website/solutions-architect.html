@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Solutions Architect — TechNext Academy</title>
+<meta name="description" content="A comprehensive course on the Solutions Architect role in an Odoo ERP implementation: the technical blueprint, architecture domains, Odoo internals, integration and data architecture, non-functional requirements, environments, deliverables, skills, and collaboration — in the context of TechNext." />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+<div class="progress-bar"></div>
+
+<nav class="topnav">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="logo">TN</span><span>TechNext Academy<small>Odoo Implementation Roles</small></span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="project-manager.html">Project Manager</a>
+      <a href="business-analyst.html">Business Analyst</a>
+      <a href="functional-consultant.html">Functional Consultant</a>
+      <a href="solutions-architect.html" class="active">Solutions Architect</a>
+    </div>
+  </div>
+</nav>
+
+<header class="course-head">
+  <div class="wrap">
+    <span class="eyebrow">Role Course · 04</span>
+    <h1>The Solutions Architect</h1>
+    <p class="lead">The technical authority on the project. Where the Functional Consultant decides <em>how Odoo will behave</em>, the Solutions Architect decides <em>how the whole system will be built</em> — modules, integrations, data, environments, performance, security, and upgrade-safety — so that the solution still stands up in three years, not just at go-live. Their product is a coherent, scalable, maintainable <em>blueprint</em>.</p>
+    <div class="course-meta">
+      <span class="chip">🏛️ 16 modules</span>
+      <span class="chip">⏱️ Full read ~40 min</span>
+      <span class="chip">🎯 Architecture &amp; integration</span>
+      <span class="chip">⚙️ Odoo internals throughout</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="course-layout">
+
+  <aside class="toc">
+    <h4>Course contents</h4>
+    <ol>
+      <li><a href="#what">What the role really is</a></li>
+      <li><a href="#mindset">The architect's mindset</a></li>
+      <li><a href="#vs">SA vs FC, Dev Lead &amp; PM</a></li>
+      <li><a href="#domains">The six architecture domains</a></li>
+      <li><a href="#odoo-internals">Odoo technical architecture</a></li>
+      <li><a href="#modules">Application &amp; module architecture</a></li>
+      <li><a href="#integration">Integration architecture</a></li>
+      <li><a href="#data">Data &amp; migration architecture</a></li>
+      <li><a href="#nfr">Non-functional requirements</a></li>
+      <li><a href="#environments">Environments &amp; release architecture</a></li>
+      <li><a href="#lifecycle">The SA across the 8 phases</a></li>
+      <li><a href="#deliverables">Deliverables &amp; artifacts</a></li>
+      <li><a href="#tools">Tools &amp; toolkit</a></li>
+      <li><a href="#skills">Skills &amp; KPIs</a></li>
+      <li><a href="#day">A week in the life</a></li>
+      <li><a href="#boundaries">Boundaries &amp; the TechNext model</a></li>
+    </ol>
+  </aside>
+
+  <main class="content">
+
+    <section id="what">
+      <span class="module-label">Module 1</span>
+      <h2>What the role really is</h2>
+      <p>The Solutions Architect (SA) is the person accountable for the <strong>technical integrity of the whole solution</strong>. On an Odoo implementation a great deal can be configured by a Functional Consultant — but the moment a project needs custom modules, third-party integrations, large-scale data migration, multi-company topology, or has to perform under real load and survive future Odoo upgrades, someone has to hold the <em>technical</em> big picture. That someone is the SA.</p>
+      <p>The SA answers a different question than the other roles. The BA answers "what does the business need?", the FC answers "how will Odoo deliver it?", the PM answers "when and at what cost?". The SA answers:</p>
+      <blockquote>"Will this whole thing actually hold together — under load, across integrations, through the next upgrade — and is it the simplest design that does so?"</blockquote>
+      <p>They sit between the functional world (FC/BA) and the technical world (developers and infrastructure), translating an agreed solution into a buildable, durable technical design — and then guarding that design while it's built.</p>
+      <div class="callout">
+        <div class="c-title">Definition</div>
+        <p><strong>Solution architecture</strong> is the discipline of defining the structure, components, interfaces, and behaviour of a system to satisfy both its functional requirements and — critically — its <em>non-functional</em> requirements (performance, scalability, security, maintainability, upgradeability). In ERP, the SA makes the technical decisions that are expensive or impossible to reverse later.</p>
+      </div>
+    </section>
+
+    <section id="mindset">
+      <span class="module-label">Module 2</span>
+      <h2>The architect's mindset</h2>
+      <div class="grid-2">
+        <div class="card"><h4>Design for change, not just launch</h4><p>The easy design wins at go-live and loses at the first upgrade. The SA optimizes for the system's whole life: cheap to change, safe to upgrade, easy to hand over.</p></div>
+        <div class="card"><h4>The best code is no code</h4><p>Every custom line is a liability that must be maintained and re-tested on every Odoo release. The SA pushes hard toward standard Odoo, OCA modules, and configuration before sanctioning bespoke development.</p></div>
+        <div class="card"><h4>Non-functionals first</h4><p>Features are visible and get attention; performance, security, and upgradeability are invisible until they fail — usually after go-live. The SA makes them explicit requirements up front.</p></div>
+        <div class="card"><h4>Decisions, written down</h4><p>Architecture is a series of trade-offs. The SA records each significant decision and its rationale (an ADR) so future maintainers know <em>why</em>, not just <em>what</em>.</p></div>
+        <div class="card"><h4>Total cost of ownership</h4><p>A clever customization that saves two clicks but costs a day per upgrade is a bad trade. The SA reasons in TCO, not in build effort.</p></div>
+        <div class="card"><h4>Simplicity is a feature</h4><p>The mark of a strong architect is how much complexity they remove. Fewer moving parts, fewer integrations, fewer custom models — fewer ways to fail.</p></div>
+      </div>
+    </section>
+
+    <section id="vs">
+      <span class="module-label">Module 3</span>
+      <h2>SA vs Functional Consultant, Dev Lead &amp; PM</h2>
+      <p>Because this role overlaps with others, defining its edges first prevents confusion. The SA is <em>not</em> a senior FC and <em>not</em> just the best developer — it is a distinct, more technical and cross-cutting authority.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Role</th><th>Owns</th><th>Decides</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Functional Consultant</strong></td><td>How Odoo <em>behaves</em> for the business</td><td>Module choice, configuration, the user-facing solution; writes specs for what each customization should <em>do</em>.</td></tr>
+            <tr><td><strong>Solutions Architect</strong></td><td>How the system is <em>built</em> and holds together</td><td>The technical design of customizations, integration patterns, data architecture, environment topology, NFRs, and technical standards.</td></tr>
+            <tr><td><strong>Dev Lead / Developer</strong></td><td>The code itself</td><td>Implementation detail within the architecture the SA sets; the SA reviews against the design.</td></tr>
+            <tr><td><strong>Project Manager</strong></td><td>The outcome: time, cost, risk</td><td>Sequencing and trade-offs; the SA advises on technical risk and effort, the PM owns the call.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout info">
+        <div class="c-title">ℹ️ A useful one-liner</div>
+        <p>The FC says <em>"the sales order should auto-create a project on confirmation."</em> The SA says <em>"we'll do that with an automated action on <code>sale.order</code>, not a core override, so it survives upgrades — and here's how it behaves under bulk imports."</em></p>
+      </div>
+    </section>
+
+    <section id="domains">
+      <span class="module-label">Module 4</span>
+      <h2>The six architecture domains</h2>
+      <p>The SA's responsibility decomposes into six domains. On a small Odoo project one architect owns all six; on a large programme some are delegated, but accountability stays with the SA.</p>
+      <div class="grid-3">
+        <div class="card"><h4>1 · Solution architecture</h4><p>The end-to-end blueprint: which problems are solved by standard Odoo, by configuration, by custom modules, by integration, or by a process change. The map everything else hangs from.</p></div>
+        <div class="card"><h4>2 · Application architecture</h4><p>How custom functionality is structured into modules, how it extends Odoo safely, and how it depends on standard and OCA modules.</p></div>
+        <div class="card"><h4>3 · Data architecture</h4><p>The data model, master-data ownership, migration strategy, archiving, and the reporting/analytics layer.</p></div>
+        <div class="card"><h4>4 · Integration architecture</h4><p>How Odoo talks to the rest of the landscape — APIs, middleware, batch vs. real-time, error handling and reconciliation.</p></div>
+        <div class="card"><h4>5 · Infrastructure / deployment</h4><p>Hosting (Odoo.sh, on-prem, cloud), environment topology, sizing, backups, disaster recovery, and the release pipeline.</p></div>
+        <div class="card"><h4>6 · Security architecture</h4><p>Access rights and record rules, data segregation (multi-company), authentication/SSO, secrets, audit, and compliance (e.g. GDPR, e-invoicing).</p></div>
+      </div>
+    </section>
+
+    <section id="odoo-internals">
+      <span class="module-label">Module 5</span>
+      <h2>Odoo technical architecture — the SA's mental model</h2>
+      <p>Unlike the FC, the SA must understand Odoo <em>under the hood</em>. The essentials:</p>
+      <ul>
+        <li><strong>Three-tier architecture:</strong> a PostgreSQL database, the Odoo server (Python application + the ORM), and the presentation layer (the web client built on the OWL framework, plus QWeb for reports/templates).</li>
+        <li><strong>Everything is a module (addon):</strong> standard apps, OCA community modules, and custom modules are all the same kind of thing — a directory with a manifest, models, views, data, and security. The whole system is the sum of the installed modules on one shared database.</li>
+        <li><strong>The ORM and models:</strong> business objects are Python classes mapped to database tables (e.g. <code>sale.order</code>, <code>res.partner</code>, <code>account.move</code>). Fields, computed fields, constraints, and <code>onchange</code> logic live here.</li>
+        <li><strong>Inheritance — the upgrade-safety lever:</strong> Odoo lets you <em>extend</em> existing models and views rather than edit them. <em>Classical/extension</em> inheritance (<code>_inherit</code>) adds fields and overrides methods; <em>delegation</em> (<code>_inherits</code>) composes records; view inheritance uses XPath to inject into existing screens. <strong>Designing customizations as clean extensions — never as edits to core files — is the single most important architectural habit in Odoo.</strong></li>
+        <li><strong>Controllers &amp; web:</strong> HTTP/JSON controllers expose endpoints (used by the portal, website, and REST-style integrations).</li>
+        <li><strong>Performance surfaces:</strong> workers/processes, cron jobs, database indexing, and the cost of computed/stored fields and large recordsets — the things that decide whether the system is fast at 50 users and 5 million records.</li>
+      </ul>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>TechNext targets Odoo.sh for most clients, so the SA's mental model includes Odoo.sh's Git-backed branches, build system, and staging model. The SA's reusable-architecture decisions feed directly into TechNext's module catalog and vertical templates — good architecture here is leverage on every future project.</p>
+      </div>
+    </section>
+
+    <section id="modules">
+      <span class="module-label">Module 6</span>
+      <h2>Application &amp; custom-module architecture</h2>
+      <p>When configuration and OCA can't cover a requirement, the SA designs the custom solution — and the goal is always the <em>smallest, cleanest</em> extension that meets the need.</p>
+      <h3>Decision order (cheapest, safest first)</h3>
+      <ol>
+        <li><strong>Standard Odoo setting</strong> — already there, just turn it on.</li>
+        <li><strong>Odoo Studio</strong> — low-code fields, views, automated actions (the FC's territory; the SA sets the guardrails).</li>
+        <li><strong>OCA module</strong> — a community-maintained, upgrade-tracked module that already solves it.</li>
+        <li><strong>Custom module</strong> — bespoke code, designed as a clean extension, only when the above genuinely can't.</li>
+      </ol>
+      <h3>Custom-module design principles the SA enforces</h3>
+      <ul class="checks">
+        <li>One module = one coherent purpose; clear, minimal dependencies declared in the manifest.</li>
+        <li>Extend via inheritance; <strong>never</strong> modify standard Odoo source — it breaks upgradeability and support.</li>
+        <li>Keep business logic in models, not in views or controllers; keep it testable.</li>
+        <li>Reuse from TechNext's catalog before writing anything new; contribute hardened modules back to the catalog.</li>
+        <li>Respect Odoo's framework conventions so the next developer (and the next upgrade) isn't surprised.</li>
+      </ul>
+      <div class="callout warn">
+        <div class="c-title">⚠️ The customization trap</div>
+        <p>Every override of core behaviour is a debt that comes due at the next major Odoo version. Heavily, carelessly customized Odoo instances become un-upgradeable and trap the client on an old release. The SA's job is to keep the customization surface small, clean, and inheritance-based so upgrades stay cheap.</p>
+      </div>
+    </section>
+
+    <section id="integration">
+      <span class="module-label">Module 7</span>
+      <h2>Integration architecture</h2>
+      <p>Real ERPs rarely live alone — they talk to webshops, payment gateways, shippers, banks, tax/e-invoicing platforms, CRMs, and legacy systems. Integration is where the SA earns their keep, because integration failures are silent, intermittent, and expensive.</p>
+      <h3>Odoo's integration surfaces</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Mechanism</th><th>Use it for</th></tr></thead>
+          <tbody>
+            <tr><td><strong>XML-RPC / JSON-RPC</strong></td><td>Odoo's external API — read/write records from another system; good for straightforward CRUD integration.</td></tr>
+            <tr><td><strong>Custom REST endpoints (controllers)</strong></td><td>Purpose-built, well-shaped APIs when external systems need something cleaner than raw RPC.</td></tr>
+            <tr><td><strong>Webhooks / automated actions</strong></td><td>Push events out of Odoo when something happens (e.g. order confirmed → notify shipping).</td></tr>
+            <tr><td><strong>Middleware / iPaaS</strong> (e.g. n8n, Make)</td><td>Orchestration, mapping, retries, and decoupling when several systems must coordinate.</td></tr>
+            <tr><td><strong>Scheduled batch (cron)</strong></td><td>High-volume, non-urgent syncs (nightly catalog or stock updates).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Patterns the SA decides</h3>
+      <ul>
+        <li><strong>Real-time vs. batch:</strong> does the business actually need instant sync, or is hourly/nightly fine and far cheaper and more robust?</li>
+        <li><strong>System of record:</strong> for each data entity, which system is the master? Ambiguity here is the root of most integration chaos.</li>
+        <li><strong>Idempotency &amp; error handling:</strong> what happens when a message is delivered twice, or fails? Retries, dead-letter handling, and reconciliation reports are designed in, not bolted on.</li>
+        <li><strong>Loose coupling:</strong> prefer middleware over point-to-point spaghetti so one system changing doesn't break five others.</li>
+      </ul>
+    </section>
+
+    <section id="data">
+      <span class="module-label">Module 8</span>
+      <h2>Data &amp; migration architecture</h2>
+      <p>The FC and BA define data mappings; the SA owns the <em>architecture</em> around data — how it's modelled, moved, scaled, and reported.</p>
+      <h3>Data model design</h3>
+      <p>Decide how custom data fits Odoo's model: new fields on existing models vs. new models; relationships (many2one / one2many / many2many); which fields are computed vs. stored; and the impact of stored computed fields on write performance and database size.</p>
+      <h3>Migration architecture</h3>
+      <p>The SA designs the ETL approach: extraction from legacy systems, the transformation/cleansing layer, and load via Odoo's import framework or scripted loads through the ORM (which respects business logic) for complex cases. They define the migration <em>sequence</em> (master data before transactions, partners before invoices, products before stock), reconciliation checks, and the rehearsal strategy — at least one full trial load before cutover.</p>
+      <h3>Reporting &amp; analytics layer</h3>
+      <p>Decide where reporting load lives: native Odoo views and pivot/dashboard tools for operational reporting, versus an external BI tool or read replica for heavy analytics so reporting queries don't degrade the transactional system.</p>
+      <h3>Volume, archiving &amp; retention</h3>
+      <p>For high-volume clients, plan data growth, indexing, and archiving up front so the database stays fast and storage stays sane years into production.</p>
+    </section>
+
+    <section id="nfr">
+      <span class="module-label">Module 9</span>
+      <h2>Non-functional requirements (the SA's signature responsibility)</h2>
+      <p>NFRs are the qualities that don't show up in a feature list but decide whether the system is actually usable in production. No one else reliably owns these, so the SA does.</p>
+      <div class="grid-2">
+        <div class="card"><h4>Performance</h4><p>Acceptable response times under realistic data volumes and concurrency. Designed via indexing, query/recordset discipline, batch jobs off-peak, and right-sized infrastructure.</p></div>
+        <div class="card"><h4>Scalability</h4><p>Headroom to grow in users, transactions, and data without re-architecting — worker counts, database capacity, and integration throughput.</p></div>
+        <div class="card"><h4>Availability &amp; resilience</h4><p>Uptime expectations, backup frequency, and a tested disaster-recovery plan with a known recovery point and time.</p></div>
+        <div class="card"><h4>Security</h4><p>Access rights, record rules, data segregation, SSO/authentication, secrets handling, audit trails, and regulatory compliance.</p></div>
+        <div class="card"><h4>Maintainability</h4><p>Clean, conventional, documented code and config so the next person can change it safely — and so support is cheap.</p></div>
+        <div class="card"><h4>Upgradeability</h4><p>The Odoo-specific NFR: keeping customizations inheritance-based and minimal so moving to the next major version stays affordable.</p></div>
+      </div>
+    </section>
+
+    <section id="environments">
+      <span class="module-label">Module 10</span>
+      <h2>Environments, deployment &amp; release architecture</h2>
+      <p>The SA defines how code and configuration flow from a developer's machine to production safely and repeatably.</p>
+      <ul class="checks">
+        <li><strong>Environment topology:</strong> development → staging/UAT → production, each with a known purpose and data profile (production-like data in staging for realistic testing).</li>
+        <li><strong>Odoo.sh model:</strong> Git branches map to environments; pushing to a branch triggers a build; staging branches get production data copies for safe testing. The SA defines the branching and promotion strategy.</li>
+        <li><strong>CI/CD &amp; testing gates:</strong> automated tests run on every build before anything reaches production; nothing ships on a green developer opinion alone.</li>
+        <li><strong>Release management:</strong> how changes are batched, approved, and deployed; how config (config-as-code) moves alongside code; and how to roll back.</li>
+        <li><strong>Backup &amp; DR:</strong> backup cadence, retention, restore testing, and the documented recovery plan.</li>
+      </ul>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>TechNext ships configuration as <strong>config-as-code</strong> inside versioned modules and runs CI on Odoo.sh, so an environment is reproducible from Git rather than hand-clicked. The SA owns this pipeline — it's what lets a tiny team deploy reliably across many clients without a release-engineering team.</p>
+      </div>
+    </section>
+
+    <section id="lifecycle">
+      <span class="module-label">Module 11</span>
+      <h2>The Solutions Architect across the eight phases</h2>
+      <p>How the SA shows up in each phase of the <a href="methodology.html">Odoo lifecycle</a>.</p>
+
+      <div class="phase"><div class="num">1</div><div><h4>Initiation &amp; kickoff</h4><p class="role-do">Assess technical feasibility and high-level risk. Capture the known non-functional requirements and the existing system landscape. Sanity-check that the commercial scope is technically achievable before anyone commits to it.</p></div></div>
+      <div class="phase"><div class="num">2</div><div><h4>Discovery &amp; analysis</h4><p class="role-do">Consulted by the BA/FC. Probe the hard parts: data volumes, integration points, performance expectations, security and compliance constraints. Flag the requirements that will need custom development or integration early, while they're still cheap to plan for.</p></div></div>
+      <div class="phase"><div class="num">3</div><div><h4>Solution design</h4><p class="role-do"><strong>The SA's lead phase.</strong> Produce the solution architecture: standard-vs-config-vs-custom decisions, the custom-module design, the integration design, the data and migration architecture, the environment topology, and the technical standards developers will follow. Record the key architecture decisions (ADRs).</p></div></div>
+      <div class="phase"><div class="num">4</div><div><h4>Build &amp; configuration</h4><p class="role-do">Guard the design. Review developers' code against the architecture and Odoo conventions, ensure customizations are clean extensions, unblock technical problems, and keep the integration build on track. Prevent quiet architectural drift.</p></div></div>
+      <div class="phase"><div class="num">5</div><div><h4>Data migration</h4><p class="role-do">Own the migration architecture and the trial-load strategy; troubleshoot performance and integrity issues; sign off that the migrated data is structurally sound and reconciles.</p></div></div>
+      <div class="phase"><div class="num">6</div><div><h4>Testing &amp; UAT</h4><p class="role-do">Lead the technical testing the FC's functional testing doesn't cover: integration testing, performance/load testing against realistic volumes, and security checks. Make sure NFRs are actually verified, not assumed.</p></div></div>
+      <div class="phase"><div class="num">7</div><div><h4>Training &amp; go-live</h4><p class="role-do">Own the technical side of cutover in the runbook: final code/config deployment, the production data load, integration switch-over, smoke tests, and the technical go/no-go criteria. On the day, the SA is the technical decision-maker beside the PM.</p></div></div>
+      <div class="phase"><div class="num">8</div><div><h4>Hypercare &amp; support</h4><p class="role-do">Resolve the deep technical issues that surface under real load, tune performance, and harden anything fragile. Capture architecture lessons and feed reusable improvements back into the TechNext catalog and templates.</p></div></div>
+    </section>
+
+    <section id="deliverables">
+      <span class="module-label">Module 12</span>
+      <h2>Deliverables &amp; artifacts</h2>
+      <div class="grid-2">
+        <div class="deliverable"><h4>Solution Architecture Document (SAD)</h4><p>The master technical blueprint: the standard/config/custom map, components, and how they fit together. The reference everything is built against.</p></div>
+        <div class="deliverable"><h4>Integration Design</h4><p>Each interface specified: systems, direction, mechanism, data, frequency, system-of-record, and error handling.</p></div>
+        <div class="deliverable"><h4>Data &amp; Migration Architecture</h4><p>The data model decisions, the ETL approach, the migration sequence, and the reconciliation strategy.</p></div>
+        <div class="deliverable"><h4>Custom-module Technical Specs</h4><p>For each customization: the models, fields, inheritance approach, and behaviour — precise enough to build once, correctly.</p></div>
+        <div class="deliverable"><h4>Architecture Decision Records (ADRs)</h4><p>Short, dated records of each significant decision, the options considered, and why one was chosen — institutional memory for future maintainers.</p></div>
+        <div class="deliverable"><h4>Environment &amp; Deployment Topology</h4><p>The dev/staging/prod layout, the branching/release strategy, sizing, backups, and DR plan.</p></div>
+        <div class="deliverable"><h4>NFR Specification</h4><p>The measurable targets for performance, availability, security, and upgradeability — and how each will be tested.</p></div>
+        <div class="deliverable"><h4>Technical Standards / Dev Guidelines</h4><p>Coding conventions, module structure, and review checklist so multiple developers produce consistent, maintainable work.</p></div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <span class="module-label">Module 13</span>
+      <h2>Tools &amp; toolkit</h2>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Need</th><th>Tool</th><th>How the SA uses it</th></tr></thead>
+          <tbody>
+            <tr><td>Hosting &amp; environments</td><td>Odoo.sh (or Docker/cloud on-prem)</td><td>Branch-per-environment, builds, staging with prod data, backups.</td></tr>
+            <tr><td>Source control &amp; review</td><td>Git / GitHub</td><td>The source of truth for code <em>and</em> config-as-code; pull-request reviews against the architecture.</td></tr>
+            <tr><td>CI / automated testing</td><td>GitHub Actions / Odoo.sh CI + Odoo test framework</td><td>Gate every change with tests before it reaches production.</td></tr>
+            <tr><td>Odoo internals</td><td>Developer mode, server logs, the ORM &amp; shell</td><td>Diagnose behaviour, profile queries, inspect the data model.</td></tr>
+            <tr><td>Integration</td><td>XML/JSON-RPC, controllers, n8n/Make</td><td>Design and prototype interfaces and orchestration.</td></tr>
+            <tr><td>Architecture diagrams</td><td>Diagramming tools (C4, sequence, topology)</td><td>Communicate the design to developers, the client, and the PM.</td></tr>
+            <tr><td>Reuse</td><td>OCA + TechNext module catalog &amp; templates</td><td>Adopt before building; contribute hardened modules back.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="skills">
+      <span class="module-label">Module 14</span>
+      <h2>Skills that matter — and KPIs</h2>
+      <h4>Hard skills</h4>
+      <div class="tags">
+        <span class="tag hard">Deep Odoo framework knowledge</span>
+        <span class="tag hard">Python &amp; the ORM</span>
+        <span class="tag hard">PostgreSQL &amp; data modelling</span>
+        <span class="tag hard">Integration &amp; API design</span>
+        <span class="tag hard">Performance &amp; scalability</span>
+        <span class="tag hard">Security architecture</span>
+        <span class="tag hard">DevOps / CI-CD / Odoo.sh</span>
+        <span class="tag hard">Migration / ETL design</span>
+      </div>
+      <h4>Soft skills</h4>
+      <div class="tags">
+        <span class="tag soft">Systems thinking</span>
+        <span class="tag soft">Trade-off judgement</span>
+        <span class="tag soft">Clear technical communication</span>
+        <span class="tag soft">Influence without authority</span>
+        <span class="tag soft">Pragmatism over purism</span>
+        <span class="tag soft">Mentoring developers</span>
+      </div>
+      <p>The SA must be technical enough to earn developers' respect, yet able to explain a design trade-off to a non-technical client sponsor. That bilingual ability — fluent in both code and business consequence — is the rarest and most valuable trait in the role.</p>
+      <h3>Metrics &amp; KPIs</h3>
+      <div class="grid-3">
+        <div class="card kpi"><div class="big">Custom %</div><div class="lbl">Share of solution that is bespoke vs. standard/OCA — lower is healthier</div></div>
+        <div class="card kpi"><div class="big">Upgrade cost</div><div class="lbl">Effort to move to the next Odoo version</div></div>
+        <div class="card kpi"><div class="big">Perf SLAs</div><div class="lbl">Response times met under target load</div></div>
+        <div class="card kpi"><div class="big">Integration uptime</div><div class="lbl">Interface reliability &amp; error rate</div></div>
+        <div class="card kpi"><div class="big">Defect escape</div><div class="lbl">Architecture/integration defects reaching production</div></div>
+        <div class="card kpi"><div class="big">Reuse rate</div><div class="lbl">Catalog/OCA reuse vs. net-new code</div></div>
+      </div>
+    </section>
+
+    <section id="day">
+      <span class="module-label">Module 15</span>
+      <h2>A week in the life</h2>
+      <p>An illustrative week for a TechNext Solutions Architect across a design-phase project and a build-phase project.</p>
+      <div class="timeline">
+        <div class="slot"><div class="t">MON</div> Lead the solution-design workshop for the new project: walk the FC's requirements, decide standard-vs-config-vs-custom for each, and sketch the integration to the client's shipping platform. Draft two ADRs.</div>
+        <div class="slot"><div class="t">TUE</div> Review developer pull requests on the build-phase project; reject one core override and pair on refactoring it into a clean inheritance; approve the rest.</div>
+        <div class="slot"><div class="t">WED</div> Design the data-migration architecture: extraction plan, transformation rules, load sequence, and the reconciliation report. Set up the first trial-load on a staging branch.</div>
+        <div class="slot"><div class="t">THU</div> Run a load test against realistic volumes; find a slow stored-computed field; redesign it. Define the NFR test plan for the upcoming UAT.</div>
+        <div class="slot"><div class="t">FRI</div> Finalize the Solution Architecture Document; brief the PM on technical risk and effort for two change requests; harvest a reusable integration connector into the TechNext catalog.</div>
+      </div>
+    </section>
+
+    <section id="boundaries">
+      <span class="module-label">Module 16</span>
+      <h2>Boundaries &amp; the TechNext lean model</h2>
+      <ul class="checks">
+        <li><strong>SA vs FC:</strong> the FC owns the functional solution and configuration; the SA owns the technical design beneath it. They co-design; the SA does not dictate business behaviour and the FC does not design integrations.</li>
+        <li><strong>SA vs Developer:</strong> the SA sets the architecture and reviews against it; the developer implements within it. The SA designs; they don't write all the code.</li>
+        <li><strong>SA vs PM:</strong> the SA advises on technical risk, effort, and feasibility; the PM owns the schedule and the commercial call.</li>
+      </ul>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ How the role changes in TechNext's A-Team</div>
+        <p>In TechNext's lean, automation-first model the Solutions Architect merges with the <strong>Senior Odoo Engineer / Tech Lead</strong> seat — one person owns architecture, custom development, and the automation platform itself. The repeatable architecture work becomes leverage: hardened catalog modules, integration connectors, and config-as-code templates so the same design isn't re-invented each project. What stays irreducibly human is the judgement in this course — the trade-offs, the upgrade-safety calls, and the design of the novel 20%. <strong>Automate the build pipeline; never automate the architecture judgement.</strong></p>
+      </div>
+    </section>
+
+    <div class="nextprev">
+      <a href="functional-consultant.html"><small>← Previous</small> The Functional Consultant</a>
+      <a href="index.html"><small>Back to →</small> All courses</a>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="inner">
+    <span>© TechNext — Odoo ERP Implementation. Internal training curriculum.</span>
+    <span><a href="index.html">Home</a> · <a href="methodology.html">Methodology</a> · <a href="project-manager.html">PM</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a></span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

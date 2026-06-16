@@ -20,6 +20,7 @@
       <a href="project-manager.html">Project Manager</a>
       <a href="business-analyst.html">Business Analyst</a>
       <a href="functional-consultant.html">Functional Consultant</a>
+      <a href="solutions-architect.html">Solutions Architect</a>
     </div>
   </div>
 </nav>
@@ -86,19 +87,19 @@
     <section id="raci">
       <span class="module-label">Module 0.3</span>
       <h2>Who does what — the RACI across phases</h2>
-      <p>R = Responsible (does the work), A = Accountable (owns the outcome), C = Consulted, I = Informed. This is the map of how the three pillars share the lifecycle.</p>
+      <p>R = Responsible (does the work), A = Accountable (owns the outcome), C = Consulted, I = Informed. This is the map of how the roles share the lifecycle.</p>
       <div class="tbl-wrap">
         <table>
-          <thead><tr><th>Phase</th><th>Project Manager</th><th>Business Analyst</th><th>Functional Consultant</th></tr></thead>
+          <thead><tr><th>Phase</th><th>Project Manager</th><th>Business Analyst</th><th>Functional Consultant</th><th>Solutions Architect</th></tr></thead>
           <tbody>
-            <tr><td>1. Initiation</td><td><strong>A/R</strong></td><td>C</td><td>C</td></tr>
-            <tr><td>2. Discovery &amp; analysis</td><td>A</td><td><strong>R</strong></td><td>C / R</td></tr>
-            <tr><td>3. Solution design</td><td>A</td><td>C</td><td><strong>R</strong></td></tr>
-            <tr><td>4. Build &amp; configuration</td><td>A</td><td>I</td><td><strong>R</strong></td></tr>
-            <tr><td>5. Data migration</td><td>A</td><td><strong>R</strong> (mapping)</td><td>R (load/validate)</td></tr>
-            <tr><td>6. Testing &amp; UAT</td><td>A</td><td>R (test cases)</td><td><strong>R</strong> (test &amp; fix)</td></tr>
-            <tr><td>7. Training &amp; go-live</td><td><strong>A/R</strong></td><td>C</td><td><strong>R</strong> (train)</td></tr>
-            <tr><td>8. Hypercare</td><td>A</td><td>I</td><td><strong>R</strong></td></tr>
+            <tr><td>1. Initiation</td><td><strong>A/R</strong></td><td>C</td><td>C</td><td>C (feasibility)</td></tr>
+            <tr><td>2. Discovery &amp; analysis</td><td>A</td><td><strong>R</strong></td><td>C / R</td><td>C (technical)</td></tr>
+            <tr><td>3. Solution design</td><td>A</td><td>C</td><td><strong>R</strong> (functional)</td><td><strong>R</strong> (technical)</td></tr>
+            <tr><td>4. Build &amp; configuration</td><td>A</td><td>I</td><td><strong>R</strong></td><td>C / R (guards design)</td></tr>
+            <tr><td>5. Data migration</td><td>A</td><td><strong>R</strong> (mapping)</td><td>R (load/validate)</td><td><strong>R</strong> (architecture)</td></tr>
+            <tr><td>6. Testing &amp; UAT</td><td>A</td><td>R (test cases)</td><td><strong>R</strong> (test &amp; fix)</td><td>R (integration/perf)</td></tr>
+            <tr><td>7. Training &amp; go-live</td><td><strong>A/R</strong></td><td>C</td><td><strong>R</strong> (train)</td><td>R (technical cutover)</td></tr>
+            <tr><td>8. Hypercare</td><td>A</td><td>I</td><td><strong>R</strong></td><td>R (deep issues)</td></tr>
           </tbody>
         </table>
       </div>
@@ -114,7 +115,7 @@
       <p>Most failed ERP projects fail at a handoff, not in the work itself. The three big ones:</p>
       <ul class="checks">
         <li><strong>BA → FC:</strong> requirements that are clear, prioritized, and testable. A vague requirement becomes a wrong configuration becomes a failed UAT.</li>
-        <li><strong>FC → Developer:</strong> a functional spec precise enough that a developer builds the right thing once. Ambiguity here is the most expensive ambiguity on the project.</li>
+        <li><strong>FC / SA → Developer:</strong> a functional spec (what it should do) plus a technical design (how it's built) precise enough that a developer builds the right thing once, as a clean, upgrade-safe extension. Ambiguity here is the most expensive ambiguity on the project.</li>
         <li><strong>Project → Client (go-live):</strong> a system the users were trained on, data they trust, and a support net for week one. Skipping training or hypercare is how a technically-successful project still "fails."</li>
       </ul>
     </section>
@@ -141,7 +142,7 @@
 <footer class="footer">
   <div class="inner">
     <span>© TechNext — Odoo ERP Implementation. Internal training curriculum.</span>
-    <span><a href="index.html">Home</a> · <a href="project-manager.html">PM</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a></span>
+    <span><a href="index.html">Home</a> · <a href="project-manager.html">PM</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a> · <a href="solutions-architect.html">SA</a></span>
   </div>
 </footer>
 

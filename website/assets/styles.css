@@ -118,7 +118,7 @@ code { font-family: var(--mono); font-size: .9em; background: var(--bg-elevated)
 .btn-ghost:hover { border-color: var(--brand); color: #fff; }
 
 /* ---------- Role cards (landing) ---------- */
-.role-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 40px 0; }
+.role-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 22px; margin: 40px 0; }
 .role-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 26px 24px; transition: transform .15s, border-color .15s; display: flex; flex-direction: column;
@@ -131,6 +131,7 @@ code { font-family: var(--mono); font-size: .9em; background: var(--bg-elevated)
 .ic-pm { background: rgba(9,132,227,.15); color: #4aa8 f3; color:#56adf5; }
 .ic-ba { background: rgba(0,184,148,.15); color: #2bd4ab; }
 .ic-fc { background: var(--accent-odoo-soft); color: #c08bb3; }
+.ic-sa { background: rgba(225,112,85,.16); color: #f0936f; }
 
 /* ---------- Generic cards / grids ---------- */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
