@@ -89,6 +89,15 @@ code { font-family: var(--mono); font-size: .9em; background: var(--bg-elevated)
 .navlinks a:hover, .navlinks a.active { color: #fff; text-decoration: none; }
 .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: 6px 10px; font-size: 1.1rem; cursor: pointer; margin-left:auto; }
 
+/* Roles dropdown */
+.navdrop { position: relative; }
+.navdrop-btn { background: none; border: none; color: var(--text-muted); font-weight: 600; font-size: .92rem; font-family: inherit; cursor: pointer; padding: 0; white-space: nowrap; }
+.navdrop-btn:hover, .navdrop-btn.active { color: #fff; }
+.navdrop-menu { display: none; position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%); background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 8px; min-width: 218px; box-shadow: var(--shadow); z-index: 120; }
+.navdrop.open .navdrop-menu { display: block; }
+.navdrop-menu a { display: block; padding: 9px 12px; border-radius: 8px; color: var(--text-muted); font-size: .9rem; font-weight: 600; white-space: nowrap; }
+.navdrop-menu a:hover, .navdrop-menu a.active { background: var(--brand-soft); color: #fff; text-decoration: none; }
+
 /* ---------- Layout ---------- */
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
 
@@ -132,6 +141,7 @@ code { font-family: var(--mono); font-size: .9em; background: var(--bg-elevated)
 .ic-ba { background: rgba(0,184,148,.15); color: #2bd4ab; }
 .ic-fc { background: var(--accent-odoo-soft); color: #c08bb3; }
 .ic-sa { background: rgba(225,112,85,.16); color: #f0936f; }
+.ic-dev { background: rgba(34,211,238,.14); color: #5fd3e6; }
 
 /* ---------- Generic cards / grids ---------- */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -273,14 +283,14 @@ blockquote { margin: 18px 0; padding: 14px 20px; border-left: 4px solid var(--br
 .legend i { width: 14px; height: 14px; border-radius: 4px; display: inline-block; border: 1px solid rgba(255,255,255,.15); }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 1160px) {
-  .navlinks { display: none; }
-  .navlinks.open { display: flex; flex-direction: column; position: absolute; top: 62px; right: 0; left: 0; background: var(--bg-soft); border-bottom: 1px solid var(--border); padding: 14px 22px; gap: 14px; }
-  .nav-toggle { display: inline-block; }
-}
 @media (max-width: 920px) {
   .course-layout { grid-template-columns: 1fr; }
   .toc { position: relative; top: 0; max-height: none; margin-bottom: 8px; }
   .role-cards, .grid-3 { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
+  .navlinks { display: none; }
+  .navlinks.open { display: flex; flex-direction: column; position: absolute; top: 62px; right: 0; left: 0; background: var(--bg-soft); border-bottom: 1px solid var(--border); padding: 14px 22px; gap: 14px; }
+  .nav-toggle { display: inline-block; }
+  .navdrop-menu { position: static; transform: none; display: block; box-shadow: none; border: none; background: transparent; padding: 4px 0 4px 14px; min-width: 0; }
+  .navdrop-btn { display: none; }
 }

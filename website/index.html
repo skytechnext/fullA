@@ -20,10 +20,16 @@
     <div class="navlinks">
       <a href="index.html" class="active">Home</a>
       <a href="methodology.html">Methodology</a>
-      <a href="project-manager.html">Project Manager</a>
-      <a href="business-analyst.html">Business Analyst</a>
-      <a href="functional-consultant.html">Functional Consultant</a>
-      <a href="solutions-architect.html">Solutions Architect</a>
+      <div class="navdrop">
+        <button class="navdrop-btn" aria-expanded="false">Roles ▾</button>
+        <div class="navdrop-menu">
+          <a href="project-manager.html">Project Manager</a>
+          <a href="business-analyst.html">Business Analyst</a>
+          <a href="functional-consultant.html">Functional Consultant</a>
+          <a href="odoo-developer.html">Odoo Developer</a>
+          <a href="solutions-architect.html">Solutions Architect</a>
+        </div>
+      </div>
       <a href="career-paths.html">Career Paths</a>
     </div>
   </div>
@@ -73,6 +79,13 @@
         <div class="meta"><span>15 modules</span><span>Solution &amp; configuration</span></div>
       </a>
 
+      <a class="role-card" href="odoo-developer.html">
+        <div class="icon ic-dev">💻</div>
+        <h3>Odoo Developer</h3>
+        <p>The builder. Turns the consultant's specs and the architect's design into working, upgrade-safe Odoo code — custom modules, integrations, automations — following the framework's conventions so it lasts.</p>
+        <div class="meta"><span>15 modules</span><span>Build &amp; code</span></div>
+      </a>
+
       <a class="role-card" href="solutions-architect.html">
         <div class="icon ic-sa">🏛️</div>
         <h3>Solutions Architect</h3>
@@ -94,6 +107,7 @@
           <tr><td><strong>What</strong> does the business actually need?</td><td>Business Analyst</td><td>Documents the current quote-to-invoice process, the gaps, and the to-be flow.</td></tr>
           <tr><td><strong>How</strong> will Odoo deliver it?</td><td>Functional Consultant</td><td>Maps it to Odoo Sales + Inventory + Accounting; flags the one report that needs custom dev.</td></tr>
           <tr><td><strong>How is it built</strong> to scale &amp; upgrade safely?</td><td>Solutions Architect</td><td>Designs the custom module as a clean extension and the integration to the shipping carrier; sets the NFRs.</td></tr>
+          <tr><td><strong>Who writes the code</strong> — and will it last?</td><td>Odoo Developer</td><td>Builds the custom module as a clean, tested extension that survives the next Odoo upgrade.</td></tr>
           <tr><td><strong>When &amp; how much</strong>, and what could go wrong?</td><td>Project Manager</td><td>Builds the plan, holds the budget, runs the risk register, drives go-live.</td></tr>
         </tbody>
       </table>
@@ -117,7 +131,7 @@
 <footer class="footer">
   <div class="inner">
     <span>© TechNext — Odoo ERP Implementation. Internal training curriculum.</span>
-    <span><a href="methodology.html">Methodology</a> · <a href="project-manager.html">PM</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a> · <a href="solutions-architect.html">SA</a></span>
+    <span><a href="methodology.html">Methodology</a> · <a href="project-manager.html">PM</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a> · <a href="odoo-developer.html">Dev</a> · <a href="solutions-architect.html">SA</a></span>
   </div>
 </footer>
 

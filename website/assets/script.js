@@ -48,4 +48,22 @@
     document.addEventListener("scroll", spy, { passive: true });
     spy();
   }
+
+  // Roles dropdown (click toggle; works on desktop and touch)
+  var drop = document.querySelector(".navdrop");
+  if (drop) {
+    var dbtn = drop.querySelector(".navdrop-btn");
+    dbtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = drop.classList.toggle("open");
+      dbtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.addEventListener("click", function () {
+      drop.classList.remove("open");
+      dbtn.setAttribute("aria-expanded", "false");
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") drop.classList.remove("open");
+    });
+  }
 })();

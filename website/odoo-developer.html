@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Odoo Developer — TechNext Academy</title>
+<meta name="description" content="A comprehensive course on the Odoo Developer role in an Odoo ERP implementation: the developer mindset, the Odoo tech stack, module anatomy, upgrade-safe inheritance, common development tasks, quality, testing, collaboration, tools, skills, KPIs, cross-role friction, and boundaries — in the context of TechNext." />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+<div class="progress-bar"></div>
+
+<nav class="topnav">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="logo">TN</span><span>TechNext Academy<small>Odoo Implementation Roles</small></span></a>
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="methodology.html">Methodology</a>
+      <div class="navdrop">
+        <button class="navdrop-btn active" aria-expanded="false">Roles ▾</button>
+        <div class="navdrop-menu">
+          <a href="project-manager.html">Project Manager</a>
+          <a href="business-analyst.html">Business Analyst</a>
+          <a href="functional-consultant.html">Functional Consultant</a>
+          <a href="odoo-developer.html" class="active">Odoo Developer</a>
+          <a href="solutions-architect.html">Solutions Architect</a>
+        </div>
+      </div>
+      <a href="career-paths.html">Career Paths</a>
+    </div>
+  </div>
+</nav>
+
+<header class="course-head">
+  <div class="wrap">
+    <span class="eyebrow">Role Course · 05</span>
+    <h1>The Odoo Developer</h1>
+    <p class="lead">The engineer who turns specifications into working software. The Odoo Developer takes the Functional Consultant's functional spec and the Solutions Architect's technical design and produces what neither a setting nor Studio can deliver: <em>reliable custom code</em>. If the FC owns fit and the SA owns the technical design, the Developer owns <em>execution</em> — building functionality that does exactly what was specified, performs well, and, above all, survives the next Odoo upgrade. Their deliverable is not a clever module; it is custom functionality that keeps working long after they have moved on.</p>
+    <div class="course-meta">
+      <span class="chip">💻 15 modules</span>
+      <span class="chip">⏱️ Full read ~40 min</span>
+      <span class="chip">🛠️ Build &amp; code</span>
+      <span class="chip">⚙️ Odoo framework throughout</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="course-layout">
+
+  <aside class="toc">
+    <h4>Course contents</h4>
+    <ol>
+      <li><a href="#what">What the role really is</a></li>
+      <li><a href="#mindset">The developer's mindset</a></li>
+      <li><a href="#vs">Developer vs FC vs SA</a></li>
+      <li><a href="#stack">The Odoo tech stack</a></li>
+      <li><a href="#anatomy">Anatomy of a custom module</a></li>
+      <li><a href="#inheritance">Inheritance &amp; upgrade-safe development</a></li>
+      <li><a href="#tasks">Common development tasks</a></li>
+      <li><a href="#lifecycle">The Developer across the 8 phases</a></li>
+      <li><a href="#quality">Writing quality code</a></li>
+      <li><a href="#testing">Testing</a></li>
+      <li><a href="#collaborating">Working from specs &amp; collaborating</a></li>
+      <li><a href="#tools">Tools — the developer's toolkit</a></li>
+      <li><a href="#skills">Skills &amp; KPIs that matter</a></li>
+      <li><a href="#friction">Where this role goes wrong</a></li>
+      <li><a href="#boundaries">Boundaries &amp; the TechNext model</a></li>
+    </ol>
+  </aside>
+
+  <main class="content">
+
+    <section id="what">
+      <span class="module-label">Module 1</span>
+      <h2>What the role really is</h2>
+      <p>An Odoo Developer is the person who writes the code that standard Odoo, configuration, and Studio cannot produce. By the time work reaches the Developer, the requirement has already been filtered hard: the Business Analyst captured the need, the Functional Consultant decided it was a genuine gap configuration couldn't close, and the Solutions Architect designed <em>how</em> it should be built. The Developer answers the last question in the chain: <em>"How is this implemented in clean, correct, maintainable Python and XML — exactly as designed?"</em></p>
+      <p>The Developer's product is <strong>working, maintainable custom functionality</strong>. Not a configured database (that is the FC), not an architecture diagram (that is the SA), and not a requirements document (that is the BA) — but running code: a custom field that computes correctly, a wizard that posts the right journal entries, a report that prints, an integration that syncs without falling over at 2 a.m. Everything the Developer does ladders up to functionality that behaves as specified and keeps behaving as Odoo evolves.</p>
+      <p>On an Odoo implementation the Developer sits at the end of the build chain, bridging three things:</p>
+      <ul>
+        <li><strong>The functional spec</strong> — the FC's precise statement of what the feature must do, in business terms, with acceptance criteria.</li>
+        <li><strong>The technical design</strong> — the SA's decisions on which models to extend, how data flows, where integrations sit, and the conventions to follow so the system stays coherent and upgradeable.</li>
+        <li><strong>The Odoo framework</strong> — the ORM, the view system, the security model, the addon architecture. The Developer knows the framework's grain better than anyone and works <em>with</em> it, never against it.</li>
+      </ul>
+      <blockquote>The mark of a senior Odoo Developer is not the cleverness of what they build but the <em>boredom</em> of it: code that reads like the rest of Odoo, extends rather than overrides, is covered by tests, and that the next developer — or the SA on an upgrade two years out — can understand and trust at a glance.</blockquote>
+      <div class="callout">
+        <div class="c-title">Definition</div>
+        <p>An <strong>Odoo Developer</strong> implements custom functionality in the Odoo framework — Python business logic, the ORM, XML views, QWeb reports, OWL front-end, controllers, security — building it as clean, tested, upgrade-safe extensions that realise the Functional Consultant's spec within the Solutions Architect's design. Their deliverable is reliable custom code that survives upgrades.</p>
+      </div>
+    </section>
+
+    <section id="mindset">
+      <span class="module-label">Module 2</span>
+      <h2>The developer's mindset</h2>
+      <p>Before the framework details, the operating instincts. Strong Odoo developers think in a recognisable way — and most of it is about restraint and the long term, not raw output:</p>
+      <div class="grid-2">
+        <div class="card"><h4>Upgrade-safety first</h4><p>Every line is written to survive the next major Odoo release. The developer extends through inheritance, never edits core, and treats "will this still work after the upgrade?" as the first question, not the last. Code that traps a client on an old version is a failure no matter how well it works today.</p></div>
+        <div class="card"><h4>Follow Odoo conventions</h4><p>The framework has a grain — naming, structure, ORM idioms, view patterns. The developer writes code that looks like the rest of Odoo, so anyone fluent in the framework can read it. Convention is not constraint; it is what makes the codebase legible and maintainable.</p></div>
+        <div class="card"><h4>Simplicity over cleverness</h4><p>The best solution is the simplest one that meets the spec. Clever code impresses for a week and confuses for years. The developer optimises for the person who reads the code next, not for their own ego today.</p></div>
+        <div class="card"><h4>Test what you build</h4><p>Code without tests is a liability waiting for UAT to find it. The developer writes automated tests from the acceptance criteria, covers the edge cases, and treats "it works on my machine" as not done.</p></div>
+        <div class="card"><h4>Communicate effort &amp; blockers</h4><p>An honest estimate and an early flag are worth more than heroics. The developer surfaces complexity, effort, and blockers the day they appear, so the PM can plan and the FC doesn't over-promise in a demo.</p></div>
+        <div class="card"><h4>Reuse before rebuild</h4><p>Before writing anything, the developer asks whether Odoo, the OCA, or TechNext's own catalog already solves it. The cheapest, most maintainable module is the one you didn't write — reuse first, build only the genuinely new.</p></div>
+      </div>
+    </section>
+
+    <section id="vs">
+      <span class="module-label">Module 3</span>
+      <h2>Developer vs Functional Consultant vs Solutions Architect</h2>
+      <p>These three roles form the build triangle, and the boundaries matter because work crosses them as handoffs. The shortest way to hold the distinction: the FC decides <em>what it should do</em>, the SA decides <em>how it should be built</em>, and the Developer <em>builds it</em>.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Concern</th><th>Functional Consultant</th><th>Solutions Architect</th><th>Developer</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Core question</strong></td><td>What should it do?</td><td>How should it be built?</td><td>How do I implement it cleanly?</td></tr>
+            <tr><td><strong>Primary output</strong></td><td>Functional spec + configured Odoo</td><td>Technical design &amp; architecture</td><td>Working, tested custom code</td></tr>
+            <tr><td><strong>Works in</strong></td><td>Odoo UI, Studio, settings</td><td>Diagrams, design docs, code review</td><td>Python, XML, JS, the ORM, Git</td></tr>
+            <tr><td><strong>Decides</strong></td><td>Business behaviour, fit-to-standard</td><td>Which models to extend, data flow, integration approach, standards</td><td>The concrete implementation within that design</td></tr>
+            <tr><td><strong>Owns</strong></td><td>The solution fits the need</td><td>The system stays coherent &amp; upgradeable</td><td>The code does what the spec says &amp; survives upgrades</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>On paper these are three seats; in TechNext's lean A-Team they overlap heavily. The same person who designs a module may also build it, and the FC who specifies a small gap may pair closely with the developer who implements it. The <em>roles</em> never disappear — someone must still decide what, how, and then build — but they collapse into fewer people. A developer at TechNext is expected to read a functional spec like an FC and respect a technical design like an SA, because they often wear those hats within the same week.</p>
+      </div>
+    </section>
+
+    <section id="stack">
+      <span class="module-label">Module 4</span>
+      <h2>The Odoo tech stack a developer must know</h2>
+      <p>Odoo is a full-stack framework, not just a database with screens. A productive Odoo developer is fluent across the whole stack — Python on the server, the ORM in between, XML and JavaScript on the client. Below is the surface area the role demands.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Layer</th><th>What it is</th><th>What the developer must know</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Python &amp; the ORM</strong></td><td>The server language and Odoo's Object-Relational Mapping layer over PostgreSQL.</td><td>Recordsets, <code>self</code> as a recordset, <code>search</code>/<code>browse</code>/<code>read</code>, <code>create</code>/<code>write</code>/<code>unlink</code>, <code>env</code>, <code>@api</code> decorators, batching — never raw SQL unless justified.</td></tr>
+            <tr><td><strong>Models &amp; fields</strong></td><td>The data definition layer: Python classes mapping to database tables.</td><td><code>Char</code>, <code>Text</code>, <code>Integer</code>, <code>Float</code>, <code>Boolean</code>, <code>Date</code>, <code>Datetime</code>, <code>Selection</code>, <code>Many2one</code>, <code>One2many</code>, <code>Many2many</code>; <code>compute</code>/<code>related</code>/<code>store</code> fields with <code>@api.depends</code>; SQL and Python constraints.</td></tr>
+            <tr><td><strong>XML views</strong></td><td>The declarative UI definition: how records are displayed and edited.</td><td>Form, tree/list, search, kanban, pivot, graph, calendar views; actions, menus, and the view inheritance mechanism (<code>xpath</code>).</td></tr>
+            <tr><td><strong>QWeb reports</strong></td><td>Odoo's templating engine for printable PDF documents.</td><td>QWeb templates, report actions, paper formats, translatable layouts, computing report data.</td></tr>
+            <tr><td><strong>OWL / JavaScript</strong></td><td>Odoo's modern front-end framework (Odoo Web Library) for interactive UI.</td><td>Components, hooks, the registry, custom widgets, client actions, patching existing components — when the UI must go beyond standard views.</td></tr>
+            <tr><td><strong>Controllers (HTTP/JSON)</strong></td><td>The web layer for endpoints — portal pages, webhooks, REST/JSON APIs.</td><td><code>http.Controller</code>, <code>@http.route</code>, <code>type='json'</code> vs <code>'http'</code>, auth modes, CSRF, returning responses safely.</td></tr>
+            <tr><td><strong>Security</strong></td><td>Who can do what, and which records they can see.</td><td><code>ir.model.access.csv</code> (CRUD per group), record rules (<code>ir.rule</code>) for row-level access, security groups, field-level access — security by default, not as an afterthought.</td></tr>
+            <tr><td><strong>Data &amp; demo XML</strong></td><td>Seed and configuration records loaded with the module.</td><td><code>noupdate</code> data, external IDs (XML IDs), demo data, sequences, default records — and the load order in the manifest.</td></tr>
+            <tr><td><strong>The manifest</strong></td><td><code>__manifest__.py</code> — the module's declaration.</td><td>Name, version, <code>depends</code>, <code>data</code> (the ordered list of XML/CSV files), <code>assets</code>, license, <code>installable</code>/<code>application</code> — the spine that tells Odoo what to load and in what order.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout info">
+        <div class="c-title">ℹ️ Why breadth matters</div>
+        <p>A single small feature can touch every layer: a new <code>Many2one</code> field (model), shown on a form (view), validated by a constraint (Python), printed on an invoice (QWeb), guarded by access rights (security), and seeded with a default record (data XML). The developer who only knows Python writes half a feature; the one who knows the whole stack ships the whole thing.</p>
+      </div>
+    </section>
+
+    <section id="anatomy">
+      <span class="module-label">Module 5</span>
+      <h2>Anatomy of a custom module</h2>
+      <p>Everything a developer builds in Odoo lives in an <strong>addon module</strong> — a self-contained folder that Odoo can install, upgrade, and uninstall as a unit. Knowing the standard structure cold is the foundation of the craft, because Odoo loads a module by convention, not configuration.</p>
+      <h3>The standard directory structure</h3>
+      <ul class="checks">
+        <li><code>__manifest__.py</code> — the module declaration: name, version, dependencies, the ordered list of data files to load, assets, and license.</li>
+        <li><code>__init__.py</code> — Python package init; imports the <code>models</code>, <code>wizard</code>, <code>controllers</code> subpackages.</li>
+        <li><code>models/</code> — Python model definitions: new models and inheritance of existing ones, with their fields, compute methods, constraints, and business logic.</li>
+        <li><code>views/</code> — XML for forms, lists, search views, kanban, actions, and menus, plus view-inheritance records.</li>
+        <li><code>security/</code> — <code>ir.model.access.csv</code> (access rights per group) and XML for security groups and record rules.</li>
+        <li><code>data/</code> — XML/CSV seed data: sequences, default records, email templates, scheduled actions, configuration loaded with the module.</li>
+        <li><code>static/</code> — front-end assets: <code>static/src/js</code> (OWL components), <code>static/src/scss</code> (styles), <code>static/src/xml</code> (OWL templates), and images/description.</li>
+        <li><code>wizard/</code> — transient models (<code>TransientModel</code>) and their views: the pop-up dialogs for multi-step user actions.</li>
+        <li><code>report/</code> — QWeb report templates, report actions, paper formats, and any report-specific Python.</li>
+        <li><code>tests/</code> — automated tests (<code>TransactionCase</code>, <code>HttpCase</code>), run on every push in CI.</li>
+        <li><code>i18n/</code> — translation files (<code>.po</code> / <code>.pot</code>) for multilingual deployments.</li>
+      </ul>
+      <h3>How it loads</h3>
+      <p>When Odoo installs or upgrades the module, it reads <code>__manifest__.py</code>, resolves and loads the <code>depends</code> modules first, imports the Python (registering models in the ORM), then loads each file in the <code>data</code> list <strong>in the exact order written</strong> — security before views that reference groups, data before views that reference it. Get the order wrong and the upgrade fails. The manifest is therefore not boilerplate; it is the load script for the whole module.</p>
+      <div class="callout tip">
+        <div class="c-title">💡 Scaffold, then shape</div>
+        <p>Odoo ships a <code>scaffold</code> command that generates this skeleton for you. Start from it — never hand-roll directory names — so the structure is correct and conventional from the first commit. The discipline is keeping the structure clean as the module grows: models in <code>models/</code>, one concern per file, and a manifest whose <code>data</code> list reads like a sane load order.</p>
+      </div>
+    </section>
+
+    <section id="inheritance">
+      <span class="module-label">Module 6</span>
+      <h2>Inheritance &amp; upgrade-safe development</h2>
+      <p>This is the single most important technical habit in the whole role. Odoo is built to be <em>extended without being modified</em>, and the entire upgradeability of a client's system rests on developers using that mechanism instead of editing core. There are three forms of inheritance, and a developer must know exactly when to reach for each.</p>
+      <div class="grid-2">
+        <div class="card"><h4><code>_inherit</code> — extension</h4><p>The workhorse. Reopen an existing model to add fields, override or extend methods, and add constraints — without touching the original code. The model keeps its table; you are layering behaviour onto it. This is how the vast majority of customizations should be built.</p></div>
+        <div class="card"><h4><code>_inherits</code> — delegation</h4><p>Delegation inheritance: your new model embeds another model by reference (a <code>Many2one</code>) and exposes its fields as if they were its own. Used where one record genuinely <em>is-a</em> another plus extra data — the classic example being how a product variant delegates to its template.</p></div>
+        <div class="card"><h4>View inheritance — <code>xpath</code></h4><p>To change a screen, you don't replace the view — you inherit it and surgically insert, replace, or move elements with <code>xpath</code> expressions (e.g. add a field <em>after</em> an existing one). The original view stays intact; your changes layer on top and can be applied or removed cleanly.</p></div>
+        <div class="card"><h4>Overriding methods with <code>super()</code></h4><p>When you extend a method, you call <code>super()</code> to run Odoo's original logic and then add yours around it. This preserves standard behaviour — and every other module's extensions of the same method — instead of silently discarding them. Forgetting <code>super()</code> is a classic source of subtle breakage.</p></div>
+      </div>
+      <p>The golden rule that ties all of this together: <strong>never edit Odoo core</strong>. Every customization is an addon that layers on top through these mechanisms. Done this way, an upgrade is a matter of re-testing your addons against the new version; done the other way, an upgrade is a rewrite — or impossible.</p>
+      <div class="callout warn">
+        <div class="c-title">⚠️ Core overrides and hacks break upgradeability</div>
+        <p>The moment a developer edits an Odoo core file, copies a core file to "tweak" it, or hacks around the framework instead of extending it, the client's path to the next Odoo version is broken. Those changes vanish or conflict on upgrade, security patches can't be applied cleanly, and someone — usually the <strong>Solutions Architect</strong> — inherits a maintenance nightmare years later, often after the original developer is long gone. Upgrade-unsafe code is debt with compound interest: cheap to write, ruinous to carry. Clean inheritance is not a style preference; it is the contract that keeps the client on supported software.</p>
+      </div>
+    </section>
+
+    <section id="tasks">
+      <span class="module-label">Module 7</span>
+      <h2>Common development tasks</h2>
+      <p>Most Odoo customization is built from a recognisable vocabulary of tasks. A fluent developer recognises which pattern a requirement calls for and reaches for the framework feature designed for it, rather than inventing machinery.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Task</th><th>How it's done in Odoo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>New models</strong></td><td>A Python class subclassing <code>models.Model</code> with <code>_name</code>, fields, and an entry in <code>ir.model.access.csv</code> — the table Odoo doesn't track natively.</td></tr>
+            <tr><td><strong>Computed &amp; related fields</strong></td><td><code>compute=</code> methods with <code>@api.depends</code> (add <code>store=True</code> when the value must be searchable/reportable and is worth persisting); <code>related=</code> to surface a field from a linked record.</td></tr>
+            <tr><td><strong>Constraints</strong></td><td><code>@api.constrains</code> for Python validation with custom messages; <code>_sql_constraints</code> for database-level guarantees (unique, check) that can never be bypassed.</td></tr>
+            <tr><td><strong>Onchange</strong></td><td><code>@api.onchange</code> to update the form live as the user edits — UI convenience only; never the place for authoritative validation, which belongs in constraints.</td></tr>
+            <tr><td><strong>Wizards</strong></td><td><code>TransientModel</code> + a form view opened as a dialog: gather input, do the work, often return an action — for multi-step user operations like bulk updates or guided imports.</td></tr>
+            <tr><td><strong>Automation: server actions vs Python</strong></td><td>Low-code server/automation rules for simple "on event, do X"; a proper Python method in a module when logic is complex, tested, or version-controlled — the developer's domain.</td></tr>
+            <tr><td><strong>QWeb PDF reports</strong></td><td>A QWeb template + report action + paper format to produce branded, translatable printed documents (invoices, certificates, custom layouts).</td></tr>
+            <tr><td><strong>Scheduled jobs</strong></td><td><code>ir.cron</code> records calling a model method on a schedule — nightly syncs, reminders, batch recomputation — written to be idempotent and batched.</td></tr>
+            <tr><td><strong>External APIs</strong></td><td><code>http.Controller</code> with <code>@http.route</code> for inbound webhooks/endpoints; outbound calls via the <code>requests</code> library inside a service method, with error handling and retries.</td></tr>
+            <tr><td><strong>OWL widgets / components</strong></td><td>JavaScript components in <code>static/src</code> registered via the registry, for interactive UI beyond standard views — dashboards, custom fields, client actions.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout tip">
+        <div class="c-title">💡 Reach for the right tool</div>
+        <p>Half of good Odoo development is matching the requirement to the framework's intended pattern. A live form tweak is an <code>onchange</code>, not a constraint; a hard data rule is a constraint, not an <code>onchange</code>; a nightly task is a cron, not a controller. Fighting the framework — recreating something it already offers — is the most common way junior developers waste effort and create fragility.</p>
+      </div>
+    </section>
+
+    <section id="lifecycle">
+      <span class="module-label">Module 8</span>
+      <h2>The Developer across the eight phases</h2>
+      <p>The Developer is not on the project from day one to day last in the way the PM is, but they have a defined part in every phase of the <a href="methodology.html">Odoo lifecycle</a>. They are consulted early for feasibility, <em>lead</em> the build, and are the deep-bug specialist through hypercare.</p>
+
+      <div class="phase"><div class="num">1</div><div>
+        <h4>Initiation &amp; kickoff</h4>
+        <p class="role-do">Informed, occasionally consulted. The Developer is rarely in the room at kickoff, but a senior developer or tech lead may be consulted on high-level feasibility — flagging early whether a headline goal smells like a large custom build or a heavy integration that the charter and budget must reflect.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">2</div><div>
+        <h4>Discovery &amp; analysis</h4>
+        <p class="role-do">Consulted / informed. As the fit-gap surfaces genuine gaps, the Developer is consulted on technical feasibility — can this realistically be built in Odoo, and roughly how big is it? Their input keeps the FC's fit-gap honest about what "custom" will actually cost.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">3</div><div>
+        <h4>Solution design</h4>
+        <p class="role-do">Consulted — and the source of estimates. The SA leads the technical design; the Developer feeds it with <strong>effort estimates and feasibility</strong>, flags where a design will be expensive or fragile, and helps choose the approach that is both correct and buildable in the time available. Honest estimating here protects the whole plan.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">4</div><div>
+        <h4>Build &amp; configuration</h4>
+        <p class="role-do"><strong>Leads the build.</strong> This is the Developer's primary phase. Working from the functional spec and technical design, they write the custom modules — models, views, logic, reports, integrations, OWL components — as clean, tested, upgrade-safe extensions, commit to Git, and push to odoo.sh staging where the FC configures around their work. The developer's signature output lands here.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">5</div><div>
+        <h4>Data migration</h4>
+        <p class="role-do">Supports. The BA owns the mapping and the FC owns load-and-validate, but the Developer builds the <strong>scripted loads</strong> — import scripts, transformation logic, and one-off migration code — for data too complex or too voluminous for the standard import framework, ensuring records land in the right models in the right order.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">6</div><div>
+        <h4>Testing &amp; UAT</h4>
+        <p class="role-do"><strong>Fixes code defects.</strong> The FC leads functional testing and triages defects; the ones that are genuine code bugs come to the Developer, who reproduces, fixes, writes a regression test, and pushes. They are disciplined about distinguishing a real defect from disguised new scope, routing the latter to the PM's change control rather than quietly building it.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">7</div><div>
+        <h4>Training &amp; go-live</h4>
+        <p class="role-do">Supports. The Developer is on standby at cutover — ensuring the final production deployment of custom modules goes cleanly, the migration scripts run against live data as rehearsed, and any last-minute code issue is resolved fast so the go-live runbook stays on schedule.</p>
+      </div></div>
+
+      <div class="phase"><div class="num">8</div><div>
+        <h4>Hypercare &amp; support</h4>
+        <p class="role-do"><strong>Resolves deep bugs.</strong> When hypercare surfaces an issue that isn't configuration or training but a genuine fault in custom code or an integration, it escalates to the Developer. They diagnose against the logs, fix at the root cause, add the missing test, and feed the lesson back so the same class of bug doesn't recur.</p>
+      </div></div>
+    </section>
+
+    <section id="quality">
+      <span class="module-label">Module 9</span>
+      <h2>Writing quality code</h2>
+      <p>Functionality that passes UAT is the floor, not the ceiling. Quality is what makes that functionality cheap to maintain, fast at scale, and safe to upgrade — and it is judged by the SA in code review, not by whether the demo worked.</p>
+      <h3>Conventions &amp; readability</h3>
+      <p>The developer follows the <strong>Odoo coding guidelines</strong> and PEP 8: consistent naming (<code>snake_case</code> fields, model names with dots, method naming idioms), one concern per file, clear method names, and comments only where intent isn't obvious. Code that reads like the rest of Odoo is code the next person can safely change.</p>
+      <h3>Performance</h3>
+      <ul class="checks">
+        <li><strong>Never query in a loop.</strong> Search once and operate on the recordset; the classic Odoo performance killer is a <code>search</code> or <code>browse</code> inside a <code>for</code> loop over records.</li>
+        <li><strong>Use the ORM in batches</strong> — <code>read</code> the fields you need in one call, write to a whole recordset at once, and prefer <code>read_group</code> for aggregates over manual summing.</li>
+        <li><strong>Mind stored computed fields</strong> — they trade write-time cost for read/search speed; store only when you must search or report on the value, and get the <code>@api.depends</code> exactly right or the value goes stale.</li>
+        <li><strong>Index and constrain at the database</strong> where it matters, and avoid loading large recordsets into memory when a targeted search would do.</li>
+      </ul>
+      <h3>Reuse &amp; security by default</h3>
+      <p>Before building, the developer checks Odoo standard, the <strong>OCA</strong> (Odoo Community Association) modules, and TechNext's own catalog — reusing a maintained module beats writing and owning a new one. And security is designed in, not bolted on: every new model gets access rules from the start, record rules where row-level access matters, and controllers that never trust their input. A feature that leaks data is a defect even if it does what the spec said.</p>
+    </section>
+
+    <section id="testing">
+      <span class="module-label">Module 10</span>
+      <h2>Testing</h2>
+      <p>Odoo ships a real testing framework, and using it is part of the developer's job, not an optional extra. Tests are how a developer proves the code meets the acceptance criteria — and how they keep it meeting them after the next change.</p>
+      <h3>The Odoo testing framework</h3>
+      <ul class="checks">
+        <li><strong><code>TransactionCase</code> / <code>SavepointCase</code></strong> — for business logic: set up records, call methods, assert the results, all rolled back after each test so the database stays clean. The backbone of testing models, constraints, and computations.</li>
+        <li><strong><code>HttpCase</code> + JS tours</strong> — for UI and end-to-end flows: drive the actual browser through a scripted "tour" to prove a screen, a wizard, or an OWL component behaves for a real user.</li>
+        <li><strong>Tests from acceptance criteria</strong> — the developer turns each acceptance criterion in the FC's spec into an assertion, so "done" is provable, not asserted in a conversation.</li>
+        <li><strong>Edge cases first</strong> — empty values, partial quantities, cancellations, permissions, multi-company: the unhappy paths where bugs actually live get explicit tests.</li>
+      </ul>
+      <h3>Tests run automatically</h3>
+      <p>On <strong>odoo.sh</strong>, the test suite runs on <em>every push</em> to a branch: a build that fails its tests doesn't get promoted. This turns testing from a virtue into a gate — broken code is caught before it ever reaches staging, let alone UAT. The developer's habit of writing a regression test for every fixed bug compounds into a suite that protects the whole codebase across upgrades.</p>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>At TechNext, AI drafts the first pass of tests directly from the functional spec's acceptance criteria and from the model definitions — generating the obvious happy-path and boundary cases automatically. The developer's job shifts from writing every assertion by hand to <em>reviewing, hardening, and extending</em> the generated tests: adding the client-specific edge cases the AI can't infer and confirming the suite actually exercises this client's logic. Faster to reach coverage; still human-verified where correctness matters.</p>
+      </div>
+    </section>
+
+    <section id="collaborating">
+      <span class="module-label">Module 11</span>
+      <h2>Working from specs &amp; collaborating</h2>
+      <p>The Developer is the receiving end of the project's most expensive handoff. Per the <a href="methodology.html#handoffs">methodology</a>, the FC/SA → Developer handoff is <em>the costliest ambiguity on the project</em>: a misread spec becomes the wrong build, discovered only at UAT, and paid for twice. How the developer handles specs and collaboration is therefore core to the role, not a soft extra.</p>
+      <h3>Reading specs &amp; asking before coding</h3>
+      <ul class="checks">
+        <li><strong>Read the whole spec and design before writing a line</strong> — the business need, the exact behaviour, the data, the screens, the edge cases, and the acceptance criteria. Understand intent, not just instructions.</li>
+        <li><strong>Ask clarifying questions up front</strong> — every ambiguity resolved before coding is hours of rework avoided. The expensive failure is the developer who guesses at an unclear spec and builds confidently in the wrong direction.</li>
+        <li><strong>Estimate honestly</strong> — give the PM and SA a realistic effort figure, including the testing and the edge cases, not the optimistic happy-path number. A padded or under-cooked estimate poisons the plan.</li>
+        <li><strong>Submit to code review</strong> — the SA (or a peer) reviews every change for correctness, convention, performance, and upgrade-safety. The developer treats review as a quality gate to welcome, not a hurdle to clear.</li>
+      </ul>
+      <div class="callout info">
+        <div class="c-title">ℹ️ Clarify, don't assume</div>
+        <p>The single highest-leverage habit a developer has is asking the FC or SA a five-minute question instead of spending two days building an assumption. Silence in the face of an ambiguous spec is not professionalism; it is risk. The best developers make their assumptions explicit and get them confirmed before, not after, the build.</p>
+      </div>
+    </section>
+
+    <section id="tools">
+      <span class="module-label">Module 12</span>
+      <h2>Tools — the developer's toolkit</h2>
+      <p>The Developer works in a code-centric toolchain layered on top of Odoo's own developer features. Fluency with these is part of the craft.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Tool</th><th>What it's for</th></tr></thead>
+          <tbody>
+            <tr><td><strong>IDE / VS Code</strong></td><td>The primary editor — Python and JS language support, linting, navigation, and integrated debugging across the Odoo codebase.</td></tr>
+            <tr><td><strong>Git / GitHub</strong></td><td>Version control for all custom modules: branches per feature, pull requests for code review, and a clean history that documents every change.</td></tr>
+            <tr><td><strong>odoo.sh staging branches &amp; builds</strong></td><td>The hosted platform: each Git branch gets a build with a production copy, tests run on every push, and changes are promoted through staging before production.</td></tr>
+            <tr><td><strong>Developer mode</strong></td><td>Unlocks technical info in the UI — field and model names, view metadata, XML IDs — the bridge between a screen and the code behind it.</td></tr>
+            <tr><td><strong>Server logs &amp; the Odoo shell</strong></td><td>Reading the server log to diagnose errors and tracebacks; the interactive <code>odoo shell</code> to inspect the live ORM, reproduce issues, and test queries against real data.</td></tr>
+            <tr><td><strong>Debugger</strong></td><td>Breakpoints and step-through (pdb/IDE debugger) to trace business logic and the browser dev tools for OWL/JS — finding the real cause, not guessing.</td></tr>
+            <tr><td><strong>The scaffold command</strong></td><td>Generates a correct, conventional module skeleton so every new addon starts with the right structure.</td></tr>
+            <tr><td><strong>TechNext reusable module catalog &amp; config-as-code</strong></td><td>The library of vetted, upgrade-safe modules and configuration assets — the developer's biggest accelerator and the destination for anything they build that's reusable.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ The TechNext angle</div>
+        <p>TechNext treats custom code as an <strong>asset, not a one-off</strong>. Whenever a build turns out to be repeatable across clients, it is hardened, tested, and promoted into the <strong>reusable module catalog</strong> — so the next project starts from a vetted building block rather than a blank file. Combined with config-as-code and AI-assisted coding, the developer's job shifts from writing the same patterns repeatedly to assembling proven modules and building only the genuinely new — and every project they finish makes the catalog richer for the next.</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <span class="module-label">Module 13</span>
+      <h2>Skills &amp; KPIs that matter</h2>
+      <p>The Developer is the most code-technical of the build roles, but the soft skills decide whether their code lands cleanly into a project. The hard skills get the build right; the soft skills get it built to spec, on estimate, and without surprises.</p>
+      <h4>Hard skills</h4>
+      <div class="tags">
+        <span class="tag hard">Python</span>
+        <span class="tag hard">Odoo ORM / framework</span>
+        <span class="tag hard">XML / QWeb</span>
+        <span class="tag hard">JavaScript / OWL</span>
+        <span class="tag hard">PostgreSQL / SQL</span>
+        <span class="tag hard">Git</span>
+        <span class="tag hard">Testing</span>
+        <span class="tag hard">Debugging</span>
+      </div>
+      <h4>Soft skills (the decisive ones)</h4>
+      <div class="tags">
+        <span class="tag soft">Reading specs</span>
+        <span class="tag soft">Communication</span>
+        <span class="tag soft">Estimating</span>
+        <span class="tag soft">Attention to detail</span>
+        <span class="tag soft">Pragmatism</span>
+        <span class="tag soft">Asking questions</span>
+      </div>
+      <p>A developer must know the framework deeply enough to extend it cleanly without fighting it — but the difference between a good developer and a costly one is rarely raw coding skill. It is whether they read the spec carefully, estimate honestly, flag blockers early, and build the boring, upgrade-safe thing instead of the clever, fragile one. <em>Enough discipline to build to spec and stay inside the design</em> is the bar, not maximal cleverness.</p>
+      <h3>Metrics &amp; KPIs the developer tracks</h3>
+      <div class="grid-3">
+        <div class="card kpi"><div class="big">Escape rate</div><div class="lbl">Defects that reach UAT or production vs. caught in build</div></div>
+        <div class="card kpi"><div class="big">Coverage</div><div class="lbl">Automated test coverage of custom code</div></div>
+        <div class="card kpi"><div class="big">Upgrade-safe</div><div class="lbl">Core-override count = 0</div></div>
+        <div class="card kpi"><div class="big">Review pass</div><div class="lbl">% of changes passing code review first time</div></div>
+        <div class="card kpi"><div class="big">Estimate accuracy</div><div class="lbl">Actual effort vs. estimated</div></div>
+        <div class="card kpi"><div class="big">Reuse rate</div><div class="lbl">Standard / OCA / catalog reused vs. built new</div></div>
+      </div>
+      <p>The healthiest leading indicator is a <strong>zero core-override count alongside a high reuse rate and rising test coverage</strong>: it predicts an upgradeable system, fewer defects escaping to the client, and a build that stayed inside Odoo's grain instead of fighting it.</p>
+    </section>
+
+    <section id="friction">
+      <span class="module-label">Cross-role friction</span>
+      <h2>Where this role goes wrong — and who it hurts</h2>
+      <p>Every role has characteristic failure modes, and the Developer's are especially costly because they are usually invisible until much later — at UAT, at the next upgrade, or in the small hours of hypercare. The anti-patterns below are the ways a developer creates pain for other roles, and the guardrails that prevent each.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Anti-pattern</th><th>Who it hurts</th><th>Guardrail</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Hard-to-maintain customizations</strong> — core overrides, hacks, ignoring conventions</td><td>Solutions Architect (maintenance nightmare, broken upgrades); future cost</td><td>Clean inheritance/extensions; follow Odoo &amp; OCA conventions; no core edits.</td></tr>
+            <tr><td><strong>Gold-plating / building beyond the spec</strong> ("I thought it'd be nice")</td><td>PM (scope &amp; schedule); QA (untested behaviour)</td><td>Build to spec; raise ideas as change requests, don't silently add them.</td></tr>
+            <tr><td><strong>Quick hacks under deadline pressure</strong></td><td>SA &amp; support (technical debt); client (fragility)</td><td>Flag the trade-off; do it right, or log the debt explicitly.</td></tr>
+            <tr><td><strong>Poor communication of effort &amp; constraints</strong></td><td>PM (bad estimates); FC (over-promising in demos)</td><td>Surface complexity, effort, and blockers early and clearly.</td></tr>
+            <tr><td><strong>Insufficient testing</strong> / "works on my machine"</td><td>QA &amp; client (defects); hypercare load</td><td>Write automated tests; cover edge cases before handoff.</td></tr>
+            <tr><td><strong>Going dark</strong> — not flagging blockers</td><td>PM (schedule surprises)</td><td>Daily visibility; raise blockers the same day.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <div class="c-title">⚠️ Upgrade-unsafe customization is the #1 long-term harm</div>
+        <p>Of all these failure modes, the first is the one with the longest tail. A core override or a framework hack may sail through UAT and go live without a hiccup — and then, a year or two later, strand the client on an unsupported Odoo version, conflict on every upgrade attempt, and land squarely on the <strong>Solutions Architect</strong> as an un-upgradeable mess to untangle, long after the developer who wrote it has gone. Building upgrade-safe is not a style choice; it is the single biggest way a developer either protects or sabotages the client and the SA for years to come.</p>
+      </div>
+    </section>
+
+    <section id="boundaries">
+      <span class="module-label">Module 15</span>
+      <h2>Boundaries &amp; the TechNext lean model</h2>
+      <p>Knowing where the Developer stops is as important as knowing what they do.</p>
+      <ul class="checks">
+        <li><strong>Developer vs. FC:</strong> the FC <em>specifies and configures</em>; the Developer <em>codes</em>. The FC owns the business behaviour and writes the functional spec; the Developer implements it. When a developer finds themselves making business-rule decisions the spec didn't cover, that's a question for the FC, not a call to make alone.</li>
+        <li><strong>Developer vs. SA:</strong> the SA <em>designs how it's built</em>; the Developer <em>implements it and is reviewed by the SA</em>. The architecture, the standards, and the upgrade-safety contract are the SA's; the clean realisation of them in code is the Developer's. The Developer pushes back when a design is impractical, but builds within it — and submits to the SA's code review.</li>
+        <li><strong>Developer vs. PM:</strong> the Developer gives honest effort and feasibility input; the PM owns the schedule and the trade-off decisions. The Developer says what something will take and what a shortcut would cost; the PM decides whether it's worth it.</li>
+      </ul>
+      <div class="callout odoo">
+        <div class="c-title">⚙️ How the role changes in TechNext's A-Team</div>
+        <p>In TechNext's lean, automation-first model the Developer merges into the <strong>Senior Odoo Engineer / Tech Lead</strong> seat — a single person who reads specs like an FC, respects the design like an SA, and builds, amplified by AI-assisted coding and the reusable module catalog. The boilerplate — scaffolds, obvious models, first-pass tests, repetitive view code — is increasingly drafted by AI and assembled from vetted catalog modules; repeatable custom code becomes a catalog module the moment it proves reusable. What stays irreducibly human is the <em>design discipline</em>: the judgment to keep it upgrade-safe, the honesty to flag a shaky estimate, and the restraint to build to spec rather than gold-plate. <strong>Automate the boilerplate; never automate the design discipline.</strong></p>
+      </div>
+    </section>
+
+    <div class="nextprev">
+      <a href="functional-consultant.html"><small>← Previous</small> The Functional Consultant</a>
+      <a href="solutions-architect.html"><small>Next course →</small> The Solutions Architect</a>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<footer class="footer">
+  <div class="inner">
+    <span>© TechNext — Odoo ERP Implementation. Internal training curriculum.</span>
+    <span><a href="index.html">Home</a> · <a href="methodology.html">Methodology</a> · <a href="project-manager.html">PM</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a> · <a href="solutions-architect.html">SA</a></span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

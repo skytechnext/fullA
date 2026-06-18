@@ -17,10 +17,16 @@
     <div class="navlinks">
       <a href="index.html">Home</a>
       <a href="methodology.html">Methodology</a>
-      <a href="project-manager.html">Project Manager</a>
-      <a href="business-analyst.html" class="active">Business Analyst</a>
-      <a href="functional-consultant.html">Functional Consultant</a>
-      <a href="solutions-architect.html">Solutions Architect</a>
+      <div class="navdrop">
+        <button class="navdrop-btn active" aria-expanded="false">Roles ▾</button>
+        <div class="navdrop-menu">
+          <a href="project-manager.html">Project Manager</a>
+          <a href="business-analyst.html" class="active">Business Analyst</a>
+          <a href="functional-consultant.html">Functional Consultant</a>
+          <a href="odoo-developer.html">Odoo Developer</a>
+          <a href="solutions-architect.html">Solutions Architect</a>
+        </div>
+      </div>
       <a href="career-paths.html">Career Paths</a>
     </div>
   </div>
@@ -59,6 +65,7 @@
       <li><a href="#tools">Tools — running it on Odoo</a></li>
       <li><a href="#skills">Skills that matter</a></li>
       <li><a href="#day">A week in the life</a></li>
+      <li><a href="#friction">Where this role goes wrong</a></li>
       <li><a href="#boundaries">Boundaries &amp; the TechNext model</a></li>
     </ol>
   </aside>
@@ -376,6 +383,28 @@
       </div>
     </section>
 
+    <section id="friction">
+      <span class="module-label">Cross-role friction</span>
+      <h2>Where this role goes wrong — and who it hurts</h2>
+      <p>The BA sits at the very start of the chain, so a mistake here multiplies as it flows downstream. These are the role's characteristic failure modes — and who pays for each.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Anti-pattern</th><th>Who it hurts</th><th>Guardrail</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ambiguous or incomplete requirements</strong></td><td>FC configures the wrong thing; Developer builds the wrong thing; UAT fails</td><td>Write testable acceptance criteria; validate drafts with the FC and SA.</td></tr>
+            <tr><td><strong>Order-taking</strong> — passing client wishes through unchallenged</td><td>Developer &amp; SA (needless customizations); the budget</td><td>Challenge every "must"; dig for the underlying need behind the request.</td></tr>
+            <tr><td><strong>Gold-plating</strong> — every edge case becomes a hard requirement</td><td>Scope and custom-dev effort balloon</td><td>Prioritize with MoSCoW; separate must-have from nice-to-have.</td></tr>
+            <tr><td><strong>Designing processes that fight Odoo</strong>'s standard flows</td><td>FC &amp; Developer (forced into customization); upgrade risk</td><td>Learn Odoo's standard processes; apply fit-to-standard first.</td></tr>
+            <tr><td><strong>Analysis paralysis</strong> — discovery that never ends</td><td>PM (the schedule slips)</td><td>Time-box discovery; decide and move; park open items with owners.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <div class="c-title">⚠️ The BA's signature failure mode</div>
+        <p>A vague requirement is the cheapest thing to create and the most expensive thing to fix. It silently becomes a wrong configuration, then wrong code, then a failed UAT — discovered weeks later and far from where it started.</p>
+      </div>
+    </section>
+
     <section id="boundaries">
       <span class="module-label">Module 14</span>
       <h2>Boundaries &amp; the TechNext lean model</h2>
@@ -413,7 +442,7 @@
 <footer class="footer">
   <div class="inner">
     <span>© TechNext — Odoo ERP Implementation. Internal training curriculum.</span>
-    <span><a href="index.html">Home</a> · <a href="methodology.html">Methodology</a> · <a href="project-manager.html">PM</a> · <a href="functional-consultant.html">FC</a> · <a href="solutions-architect.html">SA</a></span>
+    <span><a href="index.html">Home</a> · <a href="methodology.html">Methodology</a> · <a href="project-manager.html">PM</a> · <a href="functional-consultant.html">FC</a> · <a href="odoo-developer.html">Dev</a> · <a href="solutions-architect.html">SA</a></span>
   </div>
 </footer>
 

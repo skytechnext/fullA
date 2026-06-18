@@ -17,10 +17,16 @@
     <div class="navlinks">
       <a href="index.html">Home</a>
       <a href="methodology.html">Methodology</a>
-      <a href="project-manager.html" class="active">Project Manager</a>
-      <a href="business-analyst.html">Business Analyst</a>
-      <a href="functional-consultant.html">Functional Consultant</a>
-      <a href="solutions-architect.html">Solutions Architect</a>
+      <div class="navdrop">
+        <button class="navdrop-btn active" aria-expanded="false">Roles ▾</button>
+        <div class="navdrop-menu">
+          <a href="project-manager.html" class="active">Project Manager</a>
+          <a href="business-analyst.html">Business Analyst</a>
+          <a href="functional-consultant.html">Functional Consultant</a>
+          <a href="odoo-developer.html">Odoo Developer</a>
+          <a href="solutions-architect.html">Solutions Architect</a>
+        </div>
+      </div>
       <a href="career-paths.html">Career Paths</a>
     </div>
   </div>
@@ -59,6 +65,7 @@
       <li><a href="#kpis">Metrics &amp; KPIs</a></li>
       <li><a href="#day">A week in the life</a></li>
       <li><a href="#pitfalls">Common pitfalls</a></li>
+      <li><a href="#friction">Where this role goes wrong</a></li>
       <li><a href="#boundaries">Boundaries &amp; the TechNext model</a></li>
     </ol>
   </aside>
@@ -328,6 +335,28 @@
       </div>
     </section>
 
+    <section id="friction">
+      <span class="module-label">Cross-role friction</span>
+      <h2>Where this role goes wrong — and who it hurts</h2>
+      <p>Even a strong PM can become a drag on the project. These are the failure modes specific to the role — and which teammate pays for each.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Anti-pattern</th><th>Who it hurts</th><th>Guardrail</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Status theatre</strong> — endless meetings and reports</td><td>The whole team (delivery time lost to updates)</td><td>Automate status (portal + digests); meet only when there's a decision to make.</td></tr>
+            <tr><td><strong>"Hit the date at all costs"</strong> — squeezing the team instead of moving scope</td><td>FC, Developer &amp; SA — corners cut → quality debt and painful hypercare</td><td>Flex scope or resources, not just the deadline; protect testing time.</td></tr>
+            <tr><td><strong>Hiding red status</strong> to keep the client calm</td><td>Client (false confidence) &amp; team (a last-minute crisis)</td><td>Surface bad news early; keep an honest RAG status.</td></tr>
+            <tr><td><strong>Waving "small" changes through</strong> to please the client</td><td>Developer &amp; SA (unplanned, unpaid work); the margin</td><td>Route every change through change control with its impact made visible.</td></tr>
+            <tr><td><strong>Treating estimates as commitments</strong></td><td>Developer &amp; SA (burnout, rushed hacks)</td><td>Treat estimates as ranges; let the people who do the work own them.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <div class="c-title">⚠️ The PM's signature failure mode</div>
+        <p>Optimism that hides risk. A project reported green until the week before go-live leaves everyone — team and client — with no time left to recover. The PM's value is honesty about the trajectory, not reassurance.</p>
+      </div>
+    </section>
+
     <section id="boundaries">
       <span class="module-label">Module 14</span>
       <h2>Boundaries &amp; the TechNext lean model</h2>
@@ -355,7 +384,7 @@
 <footer class="footer">
   <div class="inner">
     <span>© TechNext — Odoo ERP Implementation. Internal training curriculum.</span>
-    <span><a href="index.html">Home</a> · <a href="methodology.html">Methodology</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a> · <a href="solutions-architect.html">SA</a></span>
+    <span><a href="index.html">Home</a> · <a href="methodology.html">Methodology</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a> · <a href="odoo-developer.html">Dev</a> · <a href="solutions-architect.html">SA</a></span>
   </div>
 </footer>
 

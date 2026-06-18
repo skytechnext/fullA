@@ -17,10 +17,16 @@
     <div class="navlinks">
       <a href="index.html">Home</a>
       <a href="methodology.html">Methodology</a>
-      <a href="project-manager.html">Project Manager</a>
-      <a href="business-analyst.html">Business Analyst</a>
-      <a href="functional-consultant.html">Functional Consultant</a>
-      <a href="solutions-architect.html" class="active">Solutions Architect</a>
+      <div class="navdrop">
+        <button class="navdrop-btn active" aria-expanded="false">Roles ▾</button>
+        <div class="navdrop-menu">
+          <a href="project-manager.html">Project Manager</a>
+          <a href="business-analyst.html">Business Analyst</a>
+          <a href="functional-consultant.html">Functional Consultant</a>
+          <a href="odoo-developer.html">Odoo Developer</a>
+          <a href="solutions-architect.html" class="active">Solutions Architect</a>
+        </div>
+      </div>
       <a href="career-paths.html">Career Paths</a>
     </div>
   </div>
@@ -61,6 +67,7 @@
       <li><a href="#tools">Tools &amp; toolkit</a></li>
       <li><a href="#skills">Skills &amp; KPIs</a></li>
       <li><a href="#day">A week in the life</a></li>
+      <li><a href="#friction">Where this role goes wrong</a></li>
       <li><a href="#boundaries">Boundaries &amp; the TechNext model</a></li>
     </ol>
   </aside>
@@ -339,6 +346,28 @@
       </div>
     </section>
 
+    <section id="friction">
+      <span class="module-label">Cross-role friction</span>
+      <h2>Where this role goes wrong — and who it hurts</h2>
+      <p>The architect's strengths invert neatly into its failure modes: rigor becomes perfectionism, standards become dogma, and ownership becomes a bottleneck. Here is how each one lands on the rest of the team.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Anti-pattern</th><th>Who it hurts</th><th>Guardrail</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Over-engineering</strong> — building for scale the client will never reach</td><td>PM (cost &amp; time); Developer (needless complexity)</td><td>Design for the real requirement plus sensible headroom; reason in total cost of ownership.</td></tr>
+            <tr><td><strong>Ivory-tower standards</strong> detached from delivery reality</td><td>Developer (impractical constraints, frustration)</td><td>Stay hands-on; pressure-test standards with the people who build against them.</td></tr>
+            <tr><td><strong>Becoming a bottleneck</strong> — every decision must route through them</td><td>The whole team (waiting); PM (schedule)</td><td>Delegate; write principles so others can decide without you.</td></tr>
+            <tr><td><strong>Perfectionism / analysis paralysis</strong></td><td>PM (the build can't start)</td><td>Time-box decisions; "good enough and reversible" beats perfect and late.</td></tr>
+            <tr><td><strong>Rigid "no customization" dogma</strong></td><td>BA &amp; FC (legitimate client needs blocked); the client</td><td>Judge case by case — standard-first, not standard-only.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <div class="c-title">⚠️ The SA's signature failure mode</div>
+        <p>Designing for elegance instead of for delivery. The best architects design themselves <em>out</em> of the critical path — fewer mandatory reviews, clearer principles, simpler systems — rather than becoming the gate everything must pass through.</p>
+      </div>
+    </section>
+
     <section id="boundaries">
       <span class="module-label">Module 16</span>
       <h2>Boundaries &amp; the TechNext lean model</h2>
@@ -354,7 +383,7 @@
     </section>
 
     <div class="nextprev">
-      <a href="functional-consultant.html"><small>← Previous</small> The Functional Consultant</a>
+      <a href="odoo-developer.html"><small>← Previous</small> The Odoo Developer</a>
       <a href="index.html"><small>Back to →</small> All courses</a>
     </div>
 
@@ -365,7 +394,7 @@
 <footer class="footer">
   <div class="inner">
     <span>© TechNext — Odoo ERP Implementation. Internal training curriculum.</span>
-    <span><a href="index.html">Home</a> · <a href="methodology.html">Methodology</a> · <a href="project-manager.html">PM</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a></span>
+    <span><a href="index.html">Home</a> · <a href="methodology.html">Methodology</a> · <a href="project-manager.html">PM</a> · <a href="business-analyst.html">BA</a> · <a href="functional-consultant.html">FC</a> · <a href="odoo-developer.html">Dev</a></span>
   </div>
 </footer>
 
